@@ -33,7 +33,7 @@ As a user I can...
 - Delete their account.
 - Rate programs through star system.
 
-##Schema (as of 9/20)
+## Schema (as of 9/20)
 ![schema](https://user-images.githubusercontent.com/100324379/191362231-b9470d46-b063-4717-919f-a448a69ec274.png)
 
 
