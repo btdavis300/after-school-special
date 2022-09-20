@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :ratings
+  resources :programs
   resources :users
   post '/signup', to: 'users#create'
   post "/login", to: "sessions#create"
