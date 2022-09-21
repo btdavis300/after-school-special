@@ -10,4 +10,21 @@ class SessionsController < ApplicationController
         end
       end
 
+      def logged_in
+        if current_user.valid?
+          render json: current_user, status: :ok
+        else
+          render json: { 
+            error: "User not logged in",
+            logged_in: false,
+            status: :unauthorized
+          }
+        end
+      end
+
+      def destroy
+        session.delete :user_id
+        # redirect_to "/tickets"
+      end
+
 end

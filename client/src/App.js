@@ -1,4 +1,4 @@
-// import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Login from './components/Login';
 import NavBar from './components/NavBar';
@@ -7,17 +7,32 @@ import Home from './components/Home';
 
 function App() {
 
+  const [currentUser, setCurrentUser] = useState({})
+  const [loggedIn, setLoggedIn] = useState(false)
+
+  useEffect(() => {
+    fetch(`/logged_in`)
+      .then(res => {
+        if (res.ok) {
+          setLoggedIn(true)
+          res.json().then(user => setCurrentUser(user))
+        }
+
+      }
+      )
+  }, [loggedIn]);
+
 
   return (
     <BrowserRouter>
-      <NavBar />
+      <NavBar loggedIn={loggedIn} currentUser={currentUser} setLoggedIn={setLoggedIn} setCurrentUser={setCurrentUser} />
       <div className="app">
         <Switch>
           <Route path="/signup">
-            <Signup />
+            <Signup setCurrentUser={setCurrentUser} setLoggedIn={setLoggedIn} />
           </Route>
           <Route path="/login">
-            <Login />
+            <Login setCurrentUser={setCurrentUser} setLoggedIn={setLoggedIn} />
           </Route>
           <Route path="/">
             <Home />
