@@ -1,6 +1,6 @@
 # Afterschool Special
 
-This web application was made as the capstone project for the Flatiron School for Fullstack Development bootcamp. Afterschool Special is intended for parents to find different afterschool programs for their children.
+This web application was made as the capstone project for the Flatiron School for Fullstack Development bootcamp. Afterschool Special is intended for parents to find different afterschool programs for their children and to connect with other parents.
 
 ## Hosted By Heroku
 https://after-school-project.herokuapp.com/
@@ -32,6 +32,12 @@ As a user I can...
 - Update their profile based on specific criteria.
 - Delete their account.
 - Rate programs through star system.
+
+## Stretch Goals
+- Be able to message other users, either through the database or through web sockets.
+- Be able to add users to their “Connections” List.
+- Set up a “Carpool” request system, where users can request to carpool with other users on their “Connections” List.
+
 
 ## Schema (as of 9/20)
 ![schema](https://user-images.githubusercontent.com/100324379/191362231-b9470d46-b063-4717-919f-a448a69ec274.png)
