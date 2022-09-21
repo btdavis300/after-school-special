@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+// import { useState, useEffect } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Login from './components/Login';
 import NavBar from './components/NavBar';
@@ -19,7 +19,9 @@ function App() {
             <Login />
           </Route>
           <Route path="/">
-            <h1>Hello World!</h1>
+            <h1 className="text-3xl text-sky-400 hover:text-sky-400/50 cursor-pointer font-bold underline">
+              Hello world!
+            </h1>
           </Route>
         </Switch>
       </div>
