@@ -3,6 +3,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Login from './components/Login';
 import NavBar from './components/NavBar';
 import Signup from './components/Signup';
+import Home from './components/Home';
 
 function App() {
 
@@ -10,7 +11,7 @@ function App() {
   return (
     <BrowserRouter>
       <NavBar />
-      <div className="App">
+      <div className="app">
         <Switch>
           <Route path="/signup">
             <Signup />
@@ -19,9 +20,7 @@ function App() {
             <Login />
           </Route>
           <Route path="/">
-            <h1 className="text-3xl text-sky-400 hover:text-sky-400/50 cursor-pointer font-bold underline">
-              Hello world!
-            </h1>
+            <Home />
           </Route>
         </Switch>
       </div>
