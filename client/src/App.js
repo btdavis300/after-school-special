@@ -26,7 +26,6 @@ function App() {
       )
   }, [loggedIn]);
 
-  console.log(currentUser)
 
   return (
     <BrowserRouter>
