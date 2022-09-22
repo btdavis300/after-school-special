@@ -3,7 +3,7 @@ import ProfileCard from './ProfileCard'
 import MyPrograms from './MyPrograms'
 import MyConnections from './MyConnections'
 
-function Profile({ currentUser }) {
+function Profile({ currentUser, setCurrentUser }) {
     const [profileCard, setProfileCard] = useState(true)
     const [programComp, setProgramComp] = useState(false)
     const [connectionComp, setConnectionComp] = useState(false)
@@ -48,7 +48,7 @@ function Profile({ currentUser }) {
                 : connectionComp ?
                     <MyConnections currentUser={currentUser} />
                     :
-                    <ProfileCard currentUser={currentUser} />}
+                    <ProfileCard currentUser={currentUser} setCurrentUser={setCurrentUser} />}
 
 
         </div>

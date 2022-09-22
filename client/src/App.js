@@ -57,7 +57,7 @@ function App() {
             <Home />
           </Route>
           <Route exact path="/profile">
-            <Profile currentUser={currentUser} />
+            <Profile currentUser={currentUser} setCurrentUser={setCurrentUser} />
           </Route>
           <Route exact path="/profile/my_programs">
             <MyPrograms currentUser={currentUser} />

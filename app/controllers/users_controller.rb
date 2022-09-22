@@ -10,10 +10,16 @@ class UsersController < ApplicationController
         end
     end
 
+    def update
+        user = User.find_by(id: params[:id])
+        user.update!(user_params)
+        render json: user, status: :accepted
+      end
+
 private
 
     def user_params
-        params.permit(:username, :email, :password, :password_confirmation)
+        params.permit(:username, :email, :password, :password_confirmation, :first_name, :last_name, :address, :zipcode, :children_quantity, :grade_level)
     end
 
 end

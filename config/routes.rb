@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :ratings
   resources :programs
-  resources :users
+  resources :users, only: [:index, :create, :show, :update]
   post '/signup', to: 'users#create'
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
