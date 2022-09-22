@@ -49,7 +49,7 @@ function NavBar({ loggedIn, currentUser, setCurrentUser, setLoggedIn, visible, s
                         >
                             <Dropdown.Header>
                                 <span className="block text-sm">
-                                    Signed in as
+                                    Signed in as:
                                 </span>
                                 <span className="block truncate text-sm font-bold">
                                     {currentUser.username}
