@@ -5,8 +5,40 @@ import profPic from '../assets/prof-pic-ph.png'
 function ProfileCard({ currentUser }) {
     return (
         <div class='w-3/4'>
-            <img class="w-72 h-72 rounded-full " src={profPic} alt="profile picture" />
+            <div class='flex flex-row justify-between items-center'>
+                <img class="w-72 h-72 rounded-full " src={profPic} alt="profile picture" />
 
+                <dl class="max-w-md text-gray-900 divide-y divide-gray-200 dark:text-white dark:divide-gray-700">
+                    <div class="flex flex-col pb-3">
+                        <dt class="mb-1 text-gray-500 md:text-sm dark:text-gray-400">Full name</dt>
+                        <dd class="text-sm font-semibold">{currentUser.first_name} {currentUser.last_name}</dd>
+                    </div>
+                    <div class="flex flex-col py-3">
+                        <dt class="mb-1 text-gray-500 md:text-sm dark:text-gray-400">Username</dt>
+                        <dd class="text-sm font-semibold">{currentUser.username}</dd>
+                    </div>
+                    <div class="flex flex-col pt-3">
+                        <dt class="mb-1 text-gray-500 md:text-sm dark:text-gray-400">Email address</dt>
+                        <dd class="text-sm font-semibold">{currentUser.email}</dd>
+                    </div>
+                </dl>
+
+                <dl class="max-w-md text-gray-900 divide-y divide-gray-200 dark:text-white dark:divide-gray-700">
+                    <div class="flex flex-col pb-3">
+                        <dt class="mb-1 text-gray-500 md:text-sm dark:text-gray-400">Home address</dt>
+                        <dd class="text-sm font-semibold">{currentUser.address} {currentUser.zipcode}, New York City, New York</dd>
+                    </div>
+                    <div class="flex flex-col py-3">
+                        <dt class="mb-1 text-gray-500 md:text-sm dark:text-gray-400">Number of children</dt>
+                        <dd class="text-sm font-semibold">{currentUser.children_quantity}</dd>
+                    </div>
+                    <div class="flex flex-col pt-3">
+                        <dt class="mb-1 text-gray-500 md:text-sm dark:text-gray-400">Grade level</dt>
+                        <dd class="text-sm font-semibold">{currentUser.grade_level}</dd>
+                    </div>
+                </dl>
+
+            </div>
             <form class='pt-4 pb-10'>
                 <div class="relative z-0 mb-6 w-full group">
                     <input type="email" name="floating_email" id="floating_email" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required="" />

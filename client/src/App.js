@@ -26,6 +26,7 @@ function App() {
       )
   }, [loggedIn]);
 
+  console.log(currentUser)
 
   return (
     <BrowserRouter>
@@ -41,7 +42,10 @@ function App() {
           <Route path="/signup">
             <Signup
               setCurrentUser={setCurrentUser}
-              setLoggedIn={setLoggedIn} />
+              setLoggedIn={setLoggedIn}
+              setVisible={setVisible}
+              visible={visible}
+            />
           </Route>
           <Route path="/login">
             <Login

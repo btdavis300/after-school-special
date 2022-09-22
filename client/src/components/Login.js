@@ -29,7 +29,7 @@ function Login({ visible, setVisible, setCurrentUser, setLoggedIn }) {
                 res.json().then((formData) => {
                     setCurrentUser(formData);
                     setLoggedIn(formData)
-                    history.push('/')
+                    history.push('/profile')
                 });
             } else {
                 res.json().then((errors) => {

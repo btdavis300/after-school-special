@@ -100,7 +100,7 @@ function NavBar({ loggedIn, currentUser, setCurrentUser, setLoggedIn, visible, s
                     >
                         Home
                     </Navbar.Link>
-                    <Navbar.Link href="/navbars">
+                    <Navbar.Link href="/programs">
                         Programs
                     </Navbar.Link>
                     <Navbar.Link href="/navbars">

@@ -2,9 +2,8 @@ import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { Modal, Label, TextInput, Button, Checkbox } from 'flowbite-react'
 
-function Signup({ setCurrentUser, setLoggedIn }) {
+function Signup({ setCurrentUser, setLoggedIn, setVisible, visible }) {
     const history = useHistory()
-    const [visible, setVisible] = useState(true)
     const [formData, setFormData] = useState({
         username: "",
         email: "",
@@ -31,7 +30,7 @@ function Signup({ setCurrentUser, setLoggedIn }) {
                 res.json().then((formData) => {
                     setCurrentUser(formData);
                     setLoggedIn(formData)
-                    history.push('/')
+                    history.push('/profile')
 
                 });
             } else {
