@@ -2,9 +2,8 @@ import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { Modal, Label, TextInput, Checkbox, Button } from 'flowbite-react'
 
-function Login({ setCurrentUser, setLoggedIn }) {
+function Login({ visible, setVisible, setCurrentUser, setLoggedIn }) {
     const history = useHistory()
-    const [visible, setVisible] = useState(true)
     const [formData, setFormData] = useState({
         email: "",
         password: ""

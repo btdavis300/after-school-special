@@ -4,11 +4,13 @@ import Login from './components/Login';
 import NavBar from './components/NavBar';
 import Signup from './components/Signup';
 import Home from './components/Home';
+import Profile from './components/Profile';
 
 function App() {
 
   const [currentUser, setCurrentUser] = useState({})
   const [loggedIn, setLoggedIn] = useState(false)
+  const [visible, setVisible] = useState(false)
 
   useEffect(() => {
     fetch(`/logged_in`)
@@ -25,17 +27,32 @@ function App() {
 
   return (
     <BrowserRouter>
-      <NavBar loggedIn={loggedIn} currentUser={currentUser} setLoggedIn={setLoggedIn} setCurrentUser={setCurrentUser} />
+      <NavBar
+        loggedIn={loggedIn}
+        currentUser={currentUser}
+        setLoggedIn={setLoggedIn}
+        setCurrentUser={setCurrentUser}
+        visible={visible}
+        setVisible={setVisible} />
       <div className="app">
         <Switch>
           <Route path="/signup">
-            <Signup setCurrentUser={setCurrentUser} setLoggedIn={setLoggedIn} />
+            <Signup
+              setCurrentUser={setCurrentUser}
+              setLoggedIn={setLoggedIn} />
           </Route>
           <Route path="/login">
-            <Login setCurrentUser={setCurrentUser} setLoggedIn={setLoggedIn} />
+            <Login
+              setCurrentUser={setCurrentUser}
+              setLoggedIn={setLoggedIn}
+              visible={visible}
+              setVisible={setVisible} />
           </Route>
-          <Route path="/">
+          <Route exact path="/">
             <Home />
+          </Route>
+          <Route path="/profile">
+            <Profile />
           </Route>
         </Switch>
       </div>

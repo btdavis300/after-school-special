@@ -4,12 +4,13 @@ import { Navbar, Dropdown, Avatar } from 'flowbite-react'
 import icon from "../assets/as-icon.png"
 
 
-function NavBar({ loggedIn, currentUser, setCurrentUser, setLoggedIn }) {
+function NavBar({ loggedIn, currentUser, setCurrentUser, setLoggedIn, visible, setVisible }) {
 
     const history = useHistory()
 
     function toLogin() {
         history.push('/login')
+        setVisible(!visible)
     }
 
     function onSignOut() {
@@ -54,7 +55,7 @@ function NavBar({ loggedIn, currentUser, setCurrentUser, setLoggedIn }) {
                                     {currentUser.email}
                                 </span>
                             </Dropdown.Header>
-                            <Dropdown.Item>
+                            <Dropdown.Item onClick={() => history.push('./profile')}>
                                 Profile
                             </Dropdown.Item>
                             <Dropdown.Item>
@@ -64,7 +65,7 @@ function NavBar({ loggedIn, currentUser, setCurrentUser, setLoggedIn }) {
                                 My Connections
                             </Dropdown.Item>
                             <Dropdown.Divider />
-                            <Dropdown.Item onClick={onSignOut}>
+                            <Dropdown.Item onClick={(onSignOut)}>
                                 Sign out
                             </Dropdown.Item>
                         </Dropdown>
