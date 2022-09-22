@@ -5,6 +5,8 @@ import NavBar from './components/NavBar';
 import Signup from './components/Signup';
 import Home from './components/Home';
 import Profile from './components/Profile';
+import MyPrograms from './components/MyPrograms';
+import MyConnections from './components/MyConnections';
 
 function App() {
 
@@ -51,8 +53,14 @@ function App() {
           <Route exact path="/">
             <Home />
           </Route>
-          <Route path="/profile">
-            <Profile />
+          <Route exact path="/profile">
+            <Profile currentUser={currentUser} />
+          </Route>
+          <Route exact path="/profile/my_programs">
+            <MyPrograms currentUser={currentUser} />
+          </Route>
+          <Route exact path="/profile/my_connections">
+            <MyConnections currentUser={currentUser} />
           </Route>
         </Switch>
       </div>
