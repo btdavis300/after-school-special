@@ -259,6 +259,248 @@ Program.create(
     age_group: nil
 )
 
+Program.create(
+    program_type: "Out of School Time",
+    name: "Building T 149",
+    community: "Queens",
+    agency: "Rockaway Artist Alliance, Inc.",
+    contact_number: "718.474.0861",
+    address: "Gateway National Recreation Area, Fort Tilden",
+    zipcode: 11695,
+    age_group: "Elementary/Middle School"
+)
 
+Program.create(
+    program_type: "Out of School Time",
+    name: "Dreamyard A.C.T.I.O.N.",
+    community: "Bronx",
+    agency: "Dream Yard Project, Inc.",
+    contact_number: "718.588.8007",
+    address: "The Point CDC, 940 Garrison Avenue",
+    zipcode: 10474,
+    age_group: "High School" 
+)
+
+Program.create(
+    program_type: "Out of School Time",
+    name: "Drew Hamilton Elementary",
+    community: "Manhattan",
+    agency: "The Childrens Aid Society",
+    contact_number: "212.281.9555",
+    address: "2672 Frederick Douglass Boulevard",
+    zipcode: 10030,
+    age_group: "Elementary"
+)
+
+Program.create(
+    program_type: "Out of School Time",
+    name: "x343",
+    community: "Bronx",
+    agency: "Just Us, Inc.",
+    contact_number: "718.292.3883",
+    address: "345 Brook Avenue",
+    zipcode: 10454,
+    age_group: "Middle School"
+)
+
+Program.create(
+    program_type: "Out of School Time",
+    name: "P.S. 56 LOUIS DE SARIO SCHOOL",
+    community: "Staten Island",
+    agency: "United Activities Unlimited, Inc.",
+    contact_number: "718.987.8111",
+    address: "250 KRAMER AVENUE",
+    zipcode: 10309,
+    age_group: "Elementary"
+)
+
+Program.create(
+    program_type: "Out of School Time",
+    name: "P.S. 219 KENNEDY-KING SCHOOL",
+    community: "Brooklyn",
+    agency: "New York Junior Tennis League",
+    contact_number: "347.886.3117",
+    address: "1060 CLARKSON AVENUE",
+    zipcode: 11212,
+    age_group: "Elementary"
+)
+
+Program.create(
+    program_type: "Out of School Time",
+    name: "Arthur Ashe Institute",
+    community: "Brooklyn",
+    agency: "Arthur Ashe Institute for Urban Health, Inc",
+    contact_number: "718.270.2600",
+    address: "450 Clarkson Avenue",
+    zipcode: 11203,
+    age_group: "High School"
+)
+
+Program.create(
+    program_type: "Out of School Time",
+    name: "P.S. 130 ABRAM STEVENS HEWITT",
+    community: "Bronx",
+    agency: "Citizens Advice Bureau, Inc.",
+    contact_number: "718.292.3452",
+    address: "750 Prospect Avenue",
+    zipcode: 10455,
+    age_group: "Elementary"
+)
+
+Program.create(
+    program_type: "Out of School Time",
+    name: "Audrey Johnson DCC",
+    community: "Brooklyn",
+    agency: "Bushwick Community Action Association, Inc.",
+    contact_number: "718.574.0130",
+    address: "272 Moffat Street",
+    zipcode: 11207,
+    age_group: "Elementary"
+)
+
+Program.create(
+    program_type: "Out of School Time",
+    name: "Greater Ridgewood Youth Council, Inc.",
+    community: "Queens",
+    agency: "Greater Ridgewood Youth Council, Inc.",
+    contact_number: "718.456.5437",
+    address: "1715 Weirfield Street",
+    zipcode: 11385,
+    age_group: "Elementary"
+)
+
+Program.create(
+    program_type: "Out of School Time",
+    name: "The Danny Kaye School",
+    community: "Brooklyn",
+    agency: "Brooklyn Bureau of Community Services",
+    contact_number: "347.834.3097",
+    address: "700 Sutter Avenue",
+    zipcode: 11207,
+    age_group: "Elementary"
+)
+
+Program.create(
+    program_type: "Out of School Time",
+    name: "CAMBA",
+    community: "Brooklyn",
+    agency: "CAMBA",
+    contact_number: "718.773.3343",
+    address: "790 East New York Avenue",
+    zipcode: 11203,
+    age_group: "Middle School"
+)
+
+Program.create(
+    program_type: "Out of School Time",
+    name: "St. Jude's",
+    community: "Manhattan",
+    agency: "Inwood Community Services, Inc.",
+    contact_number: "212.942.0043",
+    address: "403 West 204th Street",
+    zipcode: 10034,
+    age_group: "Elementary"
+)
+
+Program.create(
+    program_type: "Out of School Time",
+    name: "New Life Child Develop. #2",
+    community: "Brooklyn",
+    agency: "New Life Child Development Corporation",
+    contact_number: "718.417.4206",
+    address: "408 Grove Street",
+    zipcode: 11237,
+    age_group: "Elementary"
+)
+
+Program.create(
+    program_type: "Out of School Time",
+    name: "Elias Bernstein School",
+    community: "United Activities Unlimited, Inc.",
+    agency: "Staten Island",
+    contact_number: "718.987.8111",
+    address: "1270 Huguenot Avenue",
+    zipcode: 10312,
+    age_group: "Middle School"
+)
+
+Program.create(
+    program_type: "Out of School Time",
+    name: "Beruckelen School",
+    community: "Brooklyn",
+    agency: "Groundwork Inc.",
+    contact_number: "718.346.2200",
+    address: "875 Williams Avenue",
+    zipcode: 11207,
+    age_group: "Elementary"
+)
+
+Program.create(
+    program_type: "Out of School Time",
+    name: "David Marcus School",
+    community: "Brooklyn",
+    agency: "Flatbush Development Corporation",
+    contact_number: "718.859.3800",
+    address: "1100 NEWKIRK AVENUE",
+    zipcode: 11230,
+    age_group: "High School"
+)
+
+Program.create(
+    program_type: "Out of School Time",
+    name: "Childrens Arts & Science Workshops, Inc.",
+    community: "Manhattan",
+    agency: "Childrens Arts & Science Workshops, Inc.",
+    contact_number: "212.927.9233",
+    address: "586 WEST 177 STREET",
+    zipcode: 10033,
+    age_group: "Elementary"
+)
+
+Program.create(
+    program_type: "Out of School Time",
+    name: "Rocking the Boat",
+    community: "Bronx",
+    agency: "Rocking the Boat, Inc.",
+    contact_number: "718.466.5799",
+    address: "60 East 174th Street",
+    zipcode: 10452,
+    age_group: "High School"
+)
+
+Program.create(
+    program_type: "Out of School Time",
+    name: "Alexine A. Fenty School",
+    community: "Brooklyn",
+    agency: "CAMBA",
+    contact_number: "718.693.3825",
+    address: "330 Rugby Road",
+    zipcode: 11226,
+    age_group: "Elementary"
+)
+
+Program.create(
+    program_type: "Out of School Time",
+    name: "Thomas Brown School",
+    community: "Staten Island",
+    agency: "United Activities Unlimited, Inc.",
+    contact_number: "718.644.1318",
+    address: "80 MAPLE PARKWAY",
+    zipcode: 10303,
+    age_group: "Elementary"
+)
+
+User.create(
+    email: "example@example.com",
+    password: "12345",
+    first_name: "Brennan",
+    last_name: "Davis",
+    address: "123 Main St.",
+    zipcode: 29016,
+    children_quantity: 2,
+    grade_level: "High School",
+    username: "btd300"
+
+)
 
 puts "finish seeding!"

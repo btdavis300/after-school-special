@@ -7,12 +7,20 @@ import Home from './components/Home';
 import Profile from './components/Profile';
 import MyPrograms from './components/MyPrograms';
 import MyConnections from './components/MyConnections';
+import Programs from './components/Programs';
 
 function App() {
 
+  const [programs, setPrograms] = useState([])
   const [currentUser, setCurrentUser] = useState({})
   const [loggedIn, setLoggedIn] = useState(false)
   const [visible, setVisible] = useState(false)
+
+  useEffect(() => {
+    fetch("/programs")
+      .then(r => r.json())
+      .then(programsArr => setPrograms(programsArr))
+  }, [])
 
   useEffect(() => {
     fetch(`/logged_in`)
@@ -46,7 +54,7 @@ function App() {
               visible={visible}
             />
           </Route>
-          <Route path="/login">
+          <Route exact path="/login">
             <Login
               setCurrentUser={setCurrentUser}
               setLoggedIn={setLoggedIn}
@@ -64,6 +72,9 @@ function App() {
           </Route>
           <Route exact path="/profile/my_connections">
             <MyConnections currentUser={currentUser} />
+          </Route>
+          <Route exact path="/programs">
+            <Programs currentUser={currentUser} programs={programs} />
           </Route>
         </Switch>
       </div>
