@@ -49,10 +49,10 @@ function NavBar({ loggedIn, currentUser, setCurrentUser, setLoggedIn, visible, s
                         >
                             <Dropdown.Header>
                                 <span className="block text-sm">
-                                    {currentUser.username}
+                                    Signed in as
                                 </span>
-                                <span className="block truncate text-sm font-medium">
-                                    {currentUser.email}
+                                <span className="block truncate text-sm font-bold">
+                                    {currentUser.username}
                                 </span>
                             </Dropdown.Header>
                             <Dropdown.Item onClick={() => history.push('./profile')}>
