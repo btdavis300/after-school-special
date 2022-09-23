@@ -1,7 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { faker } from '@faker-js/faker';
 
 function ProgramCard({ program }) {
+    const [contact, setContact] = useState(false)
+
+
+    function showContacts(e) {
+        if (e.target.textContent === "Contact") {
+            setContact(true)
+        } else {
+            setContact(false)
+        }
+    }
+
     return (
         <div className='w-3/4 pt-4'>
 
@@ -9,15 +20,51 @@ function ProgramCard({ program }) {
 
                 <ul class="flex flex-wrap justify-start items-center mb-6 text-gray-900 dark:text-white border-b border-slate-500 pb-3">
                     <li>
-                        <span href="#" class="mr-4 hover:underline text-gray-900 dark:text-gray-400 hover:cursor-pointer md:mr-6">About</span>
+                        <span onClick={showContacts} class="mr-4 hover:underline text-gray-900 dark:text-gray-400 hover:cursor-pointer md:mr-6">About</span>
                     </li>
                     <li>
-                        <span href="#" class="mr-4 hover:underline text-gray-900 dark:text-gray-400 hover:cursor-pointer md:mr-6">Contact</span>
+                        <span onClick={showContacts} class="mr-4 hover:underline text-gray-900 dark:text-gray-400 hover:cursor-pointer md:mr-6">Contact</span>
                     </li>
                 </ul>
 
                 <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{program.name}</h5>
-                <p class="font-normal text-gray-700 dark:text-gray-400">{faker.lorem.paragraph()}</p>
+
+                {/* Data Info */}
+                <ul class="flex flex-wrap justify-start items-center mb-6 text-gray-900 dark:text-white text-sm">
+                    <li>
+                        <a href="#" class="mr-4 md:mr-6">{program.program_type}</a>
+                    </li>
+                    <li>
+                        <a href="#" class="mr-4 md:mr-6"><span class='text-black dark:text-gray-400'>Community: </span>{program.community}</a>
+                    </li>
+                    <li>
+                        <a href="#" class="mr-4 md:mr-6 "><span class='text-black dark:text-gray-400'>Agency: </span>{program.agency}</a>
+                    </li>
+                    <li>
+                        <a href="#" class="mr-4 md:mr-6"><span class='text-black dark:text-gray-400'>Age group: </span>{program.age_group}</a>
+                    </li>
+                </ul>
+
+                {contact ?
+
+                    <ul class="flex flex-col items-start mb-6 text-gray-900 dark:text-white text-sm">
+                        <li>
+                            <a href="#" class="mr-4 md:mr-6">{program.agency}</a>
+                        </li>
+                        <li>
+                            <a href="#" class="mr-4 md:mr-6 "><span class='text-black dark:text-gray-400'>Phone: </span>{program.contact_number}</a>
+                        </li>
+                        <li>
+                            <a href="#" class="mr-4 md:mr-6 "><span class='text-black dark:text-gray-400'>Address: </span>{program.address}, {program.community}, New York, {program.zipcode}</a>
+                        </li>
+                        <li>
+                            <a href="#" class="mr-4 md:mr-6">{program.age_group}</a>
+                        </li>
+                    </ul>
+
+                    :
+                    <p class="font-normal text-gray-700 dark:text-gray-400">{faker.lorem.paragraph()}</p>
+                }
             </p>
         </div>
     )
