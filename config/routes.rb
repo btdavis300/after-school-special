@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :enrolled_programs
   resources :ratings
   resources :programs
   resources :users, only: [:index, :create, :show, :update]

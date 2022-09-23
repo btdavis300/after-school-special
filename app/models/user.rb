@@ -1,5 +1,5 @@
 class User < ApplicationRecord
     has_secure_password
-    has_many :ratings
-    has_many :programs, through: :ratings
+    has_many :enrolled_programs
+    has_many :programs, through: :enrolled_programs
 end
