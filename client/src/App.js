@@ -74,7 +74,11 @@ function App() {
             <MyConnections currentUser={currentUser} />
           </Route>
           <Route exact path="/programs">
-            <Programs currentUser={currentUser} programs={programs} />
+            <Programs
+              currentUser={currentUser}
+              programs={programs}
+              setPrograms={setPrograms}
+              loggedIn={loggedIn} />
           </Route>
         </Switch>
       </div>
