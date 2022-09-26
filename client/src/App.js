@@ -61,7 +61,13 @@ function App() {
   }
 
   function onUnenrollment(unerolledProgram) {
-    console.log(unerolledProgram)
+    // fetch(`/enrolled_programs/${unerolledProgram.id}`, { method: "DELETE" })
+    // .then(res => {
+    //     if (res.ok) {
+    //         setMyPrograms(myPrograms.filter(prog => prog.name !== unerolledProgram.name))
+    //     }
+    // })
+    console.log(unerolledProgram.name)
   }
 
   return (
