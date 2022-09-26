@@ -1,9 +1,9 @@
 import React from 'react'
 import ProgramCard from './ProgramCard'
 
-function MyPrograms({ currentUser }) {
+function MyPrograms({ currentUser, myPrograms }) {
 
-    const programCards = currentUser.programs.map((program) => {
+    const programCards = myPrograms.map((program) => {
         return <ProgramCard key={program.id} program={program} />
     })
 

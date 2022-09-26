@@ -18,6 +18,7 @@ function App() {
   const [profileCard, setProfileCard] = useState(true)
   const [programComp, setProgramComp] = useState(false)
   const [connectionComp, setConnectionComp] = useState(false)
+  const [myPrograms, setMyPrograms] = useState([])
 
   useEffect(() => {
     fetch("/programs")
@@ -30,13 +31,34 @@ function App() {
       .then(res => {
         if (res.ok) {
           setLoggedIn(true)
-          res.json().then(user => setCurrentUser(user))
+          res.json()
+            .then(
+              user => {
+                setCurrentUser(user)
+                setMyPrograms(user.programs)
+              }
+            )
         }
-
       }
       )
   }, [loggedIn]);
 
+
+  function onEnroll(enrolledProgram) {
+    const enroll = {
+      user_id: currentUser.id,
+      program_id: enrolledProgram.id,
+      enrolled: true
+    }
+    fetch('/enrolled_programs', {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(enroll),
+    })
+      .then((res) => res.json())
+      .then(setMyPrograms([...myPrograms, enrolledProgram]))
+
+  }
 
   return (
     <BrowserRouter>
@@ -78,10 +100,13 @@ function App() {
               setProgramComp={setProgramComp}
               setConnectionComp={setConnectionComp}
               programComp={programComp}
-              connectionComp={connectionComp} />
+              connectionComp={connectionComp}
+              myPrograms={myPrograms} />
           </Route>
           <Route exact path="/profile/my_programs">
-            <MyPrograms currentUser={currentUser} />
+            <MyPrograms
+              currentUser={currentUser}
+              myPrograms={myPrograms} />
           </Route>
           <Route exact path="/profile/my_connections">
             <MyConnections currentUser={currentUser} />
@@ -91,7 +116,8 @@ function App() {
               currentUser={currentUser}
               programs={programs}
               setPrograms={setPrograms}
-              loggedIn={loggedIn} />
+              loggedIn={loggedIn}
+              onEnroll={onEnroll} />
           </Route>
         </Switch>
       </div>

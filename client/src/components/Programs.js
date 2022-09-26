@@ -2,13 +2,13 @@ import React, { useState, useEffect } from 'react'
 import ProgramCard from './ProgramCard'
 import { Dropdown } from 'flowbite-react'
 
-function Programs({ programs, setPrograms, loggedIn, currentUser }) {
+function Programs({ programs, setPrograms, loggedIn, currentUser, onEnroll }) {
     const [enrolledList, setEnrolledList] = useState()
 
 
 
     const programCards = programs.map((program) => {
-        return <ProgramCard key={program.id} program={program} loggedIn={loggedIn} currentUser={currentUser} />
+        return <ProgramCard key={program.id} program={program} loggedIn={loggedIn} currentUser={currentUser} onEnroll={onEnroll} />
     })
 
     function handleCategory(e) {

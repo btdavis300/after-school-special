@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-function ProgramCard({ program, loggedIn, currentUser }) {
+function ProgramCard({ program, loggedIn, currentUser, onEnroll }) {
     const [contact, setContact] = useState(false)
     const [toEnroll, setToEnroll] = useState(false)
     const [alreadyEnrolled, setAlreadyEnrolled] = useState(false)
@@ -17,6 +17,7 @@ function ProgramCard({ program, loggedIn, currentUser }) {
 
 
 
+
     function showContacts(e) {
         if (e.target.textContent === "Contact") {
             setContact(true)
@@ -26,17 +27,7 @@ function ProgramCard({ program, loggedIn, currentUser }) {
     }
 
     function handleEnroll() {
-        const enroll = {
-            user_id: currentUser.id,
-            program_id: program.id,
-            enrolled: true
-        }
-        fetch('/enrolled_programs', {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(enroll),
-        })
-            .then((res) => res.json())
+        onEnroll(program)
         setToEnroll(!toEnroll)
     }
 
