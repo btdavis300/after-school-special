@@ -26,6 +26,17 @@ function ProgramCard({ program, loggedIn, currentUser }) {
     }
 
     function handleEnroll() {
+        const enroll = {
+            user_id: currentUser.id,
+            program_id: program.id,
+            enrolled: true
+        }
+        fetch('/enrolled_programs', {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(enroll),
+        })
+            .then((res) => res.json())
         setToEnroll(!toEnroll)
     }
 
