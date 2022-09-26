@@ -36,6 +36,7 @@ function ProfileCard({ currentUser, setCurrentUser }) {
         form.scrollIntoView({ behavior: "smooth" });
     }
 
+
     return (
         <div class='w-3/4'>
             <div class='flex flex-row justify-between items-center'>

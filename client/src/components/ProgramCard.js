@@ -80,16 +80,13 @@ function ProgramCard({ program, loggedIn, currentUser }) {
 
                     <ul class="flex flex-col items-start mb-6 text-gray-900 dark:text-white text-sm">
                         <li>
-                            <a href="#" class="mr-4 md:mr-6">{program.agency}</a>
+                            <a href="#" class="mr-4 md:mr-6 font-bold italic">{program.agency}</a>
                         </li>
                         <li>
                             <a href="#" class="mr-4 md:mr-6 "><span class='text-black dark:text-gray-400'>Phone: </span>{program.contact_number}</a>
                         </li>
                         <li>
                             <a href="#" class="mr-4 md:mr-6 "><span class='text-black dark:text-gray-400'>Address: </span>{program.address}, {program.community}, New York, {program.zipcode}</a>
-                        </li>
-                        <li>
-                            <a href="#" class="mr-4 md:mr-6">{program.age_group}</a>
                         </li>
                     </ul>
 
