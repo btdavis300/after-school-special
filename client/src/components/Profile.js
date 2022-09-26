@@ -3,7 +3,7 @@ import ProfileCard from './ProfileCard'
 import MyPrograms from './MyPrograms'
 import MyConnections from './MyConnections'
 
-function Profile({ currentUser, setCurrentUser, setProfileCard, setConnectionComp, setProgramComp, connectionComp, programComp, myPrograms }) {
+function Profile({ currentUser, setCurrentUser, setProfileCard, setConnectionComp, setProgramComp, connectionComp, programComp, myPrograms, onUnenrollment }) {
 
     function handleClick(e) {
         const state = e.target.name
@@ -41,7 +41,7 @@ function Profile({ currentUser, setCurrentUser, setProfileCard, setConnectionCom
             </ul>
 
             {programComp ?
-                <MyPrograms currentUser={currentUser} myPrograms={myPrograms} />
+                <MyPrograms currentUser={currentUser} myPrograms={myPrograms} onUnenrollment={onUnenrollment} />
                 : connectionComp ?
                     <MyConnections currentUser={currentUser} />
                     :

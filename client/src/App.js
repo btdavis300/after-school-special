@@ -60,6 +60,10 @@ function App() {
 
   }
 
+  function onUnenrollment(unerolledProgram) {
+    console.log(unerolledProgram)
+  }
+
   return (
     <BrowserRouter>
       <NavBar
@@ -101,7 +105,8 @@ function App() {
               setConnectionComp={setConnectionComp}
               programComp={programComp}
               connectionComp={connectionComp}
-              myPrograms={myPrograms} />
+              myPrograms={myPrograms}
+              onUnenrollment={onUnenrollment} />
           </Route>
           {/* <Route exact path="/profile/my_programs">
             <MyPrograms

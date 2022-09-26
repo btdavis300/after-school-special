@@ -10,6 +10,11 @@ class EnrolledProgramsController < ApplicationController
         render json: enroll, status: :created
     end
 
+    def destroy
+        enroll = EnrolledProgram.find(params[:id])
+        enroll.destroy
+    end
+
 private
 
     def enrolled_params
