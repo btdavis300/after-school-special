@@ -3,7 +3,6 @@ import ProgramCard from './ProgramCard'
 import { Dropdown } from 'flowbite-react'
 
 function Programs({ programs, setPrograms, loggedIn, currentUser, onEnroll }) {
-    const [enrolledList, setEnrolledList] = useState()
 
 
 

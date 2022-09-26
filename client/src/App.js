@@ -103,11 +103,11 @@ function App() {
               connectionComp={connectionComp}
               myPrograms={myPrograms} />
           </Route>
-          <Route exact path="/profile/my_programs">
+          {/* <Route exact path="/profile/my_programs">
             <MyPrograms
               currentUser={currentUser}
               myPrograms={myPrograms} />
-          </Route>
+          </Route> */}
           <Route exact path="/profile/my_connections">
             <MyConnections currentUser={currentUser} />
           </Route>

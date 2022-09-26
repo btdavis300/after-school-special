@@ -3,18 +3,6 @@ import React, { useEffect, useState } from 'react'
 function ProgramCard({ program, loggedIn, currentUser, onEnroll }) {
     const [contact, setContact] = useState(false)
     const [toEnroll, setToEnroll] = useState(false)
-    const [alreadyEnrolled, setAlreadyEnrolled] = useState(false)
-
-
-
-    // useEffect(() => {
-    //     currentUser.enrolled_programs.map((prog) => {
-    //         if (program.name === prog.program_name) {
-    //             setAlreadyEnrolled(true)
-    //         }
-    //     })
-    // }, [alreadyEnrolled])
-
 
 
 
