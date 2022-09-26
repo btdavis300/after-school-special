@@ -4,13 +4,31 @@ import { Navbar, Dropdown, Avatar } from 'flowbite-react'
 import icon from "../assets/as-icon.png"
 
 
-function NavBar({ loggedIn, currentUser, setCurrentUser, setLoggedIn, visible, setVisible }) {
+function NavBar({ loggedIn, currentUser, setCurrentUser, setLoggedIn, visible, setVisible, setProfileCard, setProgramComp, setConnectionComp }) {
 
     const history = useHistory()
 
     function toLogin() {
         history.push('/login')
         setVisible(!visible)
+    }
+
+    function handleProfDropClick(e) {
+        const click = e.target.textContent
+        if (click === "My Programs") {
+            setProfileCard(false)
+            setProgramComp(true)
+            setConnectionComp(false)
+        } else if (click === "Profile") {
+            setProfileCard(true)
+            setProgramComp(false)
+            setConnectionComp(false)
+        } else {
+            setProfileCard(false)
+            setProgramComp(false)
+            setConnectionComp(true)
+        }
+        history.push('/profile')
     }
 
     function onSignOut() {
@@ -55,13 +73,13 @@ function NavBar({ loggedIn, currentUser, setCurrentUser, setLoggedIn, visible, s
                                     {currentUser.username}
                                 </span>
                             </Dropdown.Header>
-                            <Dropdown.Item onClick={() => history.push('./profile')}>
+                            <Dropdown.Item onClick={handleProfDropClick}>
                                 Profile
                             </Dropdown.Item>
-                            <Dropdown.Item>
+                            <Dropdown.Item onClick={handleProfDropClick}>
                                 My Programs
                             </Dropdown.Item>
-                            <Dropdown.Item>
+                            <Dropdown.Item onClick={handleProfDropClick}>
                                 My Connections
                             </Dropdown.Item>
                             <Dropdown.Divider />

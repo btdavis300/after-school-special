@@ -3,10 +3,8 @@ import ProfileCard from './ProfileCard'
 import MyPrograms from './MyPrograms'
 import MyConnections from './MyConnections'
 
-function Profile({ currentUser, setCurrentUser }) {
-    const [profileCard, setProfileCard] = useState(true)
-    const [programComp, setProgramComp] = useState(false)
-    const [connectionComp, setConnectionComp] = useState(false)
+function Profile({ currentUser, setCurrentUser, setProfileCard, setConnectionComp, setProgramComp, connectionComp, programComp }) {
+
 
     function handleClick(e) {
         const state = e.target.name

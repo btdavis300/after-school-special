@@ -15,6 +15,9 @@ function App() {
   const [currentUser, setCurrentUser] = useState({})
   const [loggedIn, setLoggedIn] = useState(false)
   const [visible, setVisible] = useState(false)
+  const [profileCard, setProfileCard] = useState(true)
+  const [programComp, setProgramComp] = useState(false)
+  const [connectionComp, setConnectionComp] = useState(false)
 
   useEffect(() => {
     fetch("/programs")
@@ -43,7 +46,10 @@ function App() {
         setLoggedIn={setLoggedIn}
         setCurrentUser={setCurrentUser}
         visible={visible}
-        setVisible={setVisible} />
+        setVisible={setVisible}
+        setProfileCard={setProfileCard}
+        setProgramComp={setProgramComp}
+        setConnectionComp={setConnectionComp} />
       <div className="app">
         <Switch>
           <Route path="/signup">
@@ -65,7 +71,14 @@ function App() {
             <Home />
           </Route>
           <Route exact path="/profile">
-            <Profile currentUser={currentUser} setCurrentUser={setCurrentUser} />
+            <Profile
+              currentUser={currentUser}
+              setCurrentUser={setCurrentUser}
+              setProfileCard={setProfileCard}
+              setProgramComp={setProgramComp}
+              setConnectionComp={setConnectionComp}
+              programComp={programComp}
+              connectionComp={connectionComp} />
           </Route>
           <Route exact path="/profile/my_programs">
             <MyPrograms currentUser={currentUser} />
