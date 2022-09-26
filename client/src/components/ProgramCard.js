@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { faker } from '@faker-js/faker';
 
 function ProgramCard({ program, loggedIn, currentUser }) {
     const [contact, setContact] = useState(false)
@@ -95,7 +94,7 @@ function ProgramCard({ program, loggedIn, currentUser }) {
                     </ul>
 
                     :
-                    <p class="font-normal text-gray-700 dark:text-gray-400">{faker.lorem.paragraph()}</p>
+                    <p class="font-normal text-gray-700 dark:text-gray-400">{program.description}</p>
                 }
             </p>
         </div>

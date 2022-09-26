@@ -1,13 +1,4 @@
-# t.string "program_type"
-# t.string "name"
-# t.string "community"
-# t.string "agency"
-# t.integer "contact_number"
-# t.string "address"
-# t.integer "zipcode"
-# t.string "age_group"
-# t.datetime "created_at", null: false
-# t.datetime "updated_at", null: false
+
 puts "started seeding"
 Program.create(
     program_type: "Transitional Independent Living",
@@ -17,7 +8,8 @@ Program.create(
     contact_number: "212.926.8089 ext. 25",
     address: nil,
     zipcode: 10039,
-    age_group: nil
+    age_group: nil,
+    description: Faker::Lorem.paragraph(sentence_count: 8)
 )
 
 Program.create(
@@ -28,7 +20,8 @@ Program.create(
     contact_number: "646.485.6900",
     address: nil,
     zipcode: 10011,
-    age_group: nil
+    age_group: nil,
+    description: Faker::Lorem.paragraph(sentence_count: 8)
 )
 
 Program.create(
@@ -39,7 +32,8 @@ Program.create(
     contact_number: "212.491.5911 ext. 13",
     address: nil,
     zipcode: 10038,
-    age_group: nil
+    age_group: nil,
+    description: Faker::Lorem.paragraph(sentence_count: 8)
 )
 
 Program.create(
@@ -50,7 +44,8 @@ Program.create(
     contact_number: "212.861.4325",
     address: nil,
     zipcode: 10065,
-    age_group: nil
+    age_group: nil,
+    description: Faker::Lorem.paragraph(sentence_count: 8)
 )
 
 Program.create(
@@ -61,7 +56,8 @@ Program.create(
     contact_number: "718.253.5364",
     address: nil,
     zipcode: 11234,
-    age_group: nil
+    age_group: nil,
+    description: Faker::Lorem.paragraph(sentence_count: 8)
 )
 
 Program.create(
@@ -72,7 +68,8 @@ Program.create(
     contact_number: "718.526.3000",
     address: nil,
     zipcode: 11433,
-    age_group: nil
+    age_group: nil,
+    description: Faker::Lorem.paragraph(sentence_count: 8)
 )
 Program.create(
     program_type: "Transitional Independent Living",
@@ -82,7 +79,8 @@ Program.create(
     contact_number: "718.827.8465",
     address: nil,
     zipcode: 11208,
-    age_group: nil
+    age_group: nil,
+    description: Faker::Lorem.paragraph(sentence_count: 8)
 )
 Program.create(
     program_type: "Transitional Independent Living",
@@ -92,7 +90,8 @@ Program.create(
     contact_number: "718.782.0198",
     address: nil,
     zipcode: 11211,
-    age_group: nil
+    age_group: nil,
+    description: Faker::Lorem.paragraph(sentence_count: 8)
 )
 Program.create(
     program_type: "Transitional Independent Living",
@@ -102,7 +101,8 @@ Program.create(
     contact_number: "718.326.5931",
     address: nil,
     zipcode: 11211,
-    age_group: nil
+    age_group: nil,
+    description: Faker::Lorem.paragraph(sentence_count: 8)
 )
 
 Program.create(
@@ -113,7 +113,8 @@ Program.create(
     contact_number: "718.217.5613",
     address: nil,
     zipcode: 11429,
-    age_group: nil
+    age_group: nil,
+    description: Faker::Lorem.paragraph(sentence_count: 8)
 )
 
 Program.create(
@@ -124,7 +125,8 @@ Program.create(
     contact_number: "718.384.7083",
     address: "89 South 10th Street",
     zipcode: 11221,
-    age_group: nil
+    age_group: nil,
+    description: Faker::Lorem.paragraph(sentence_count: 8)
 )
 
 Program.create(
@@ -135,7 +137,8 @@ Program.create(
     contact_number: "212.695.2220",
     address: "209 West 125th Street",
     zipcode: 10027,
-    age_group: nil
+    age_group: nil,
+    description: Faker::Lorem.paragraph(sentence_count: 8)
 )
 
 Program.create(
@@ -146,7 +149,8 @@ Program.create(
     contact_number: "718.651.8427",
     address: "104-11 37th Avenue",
     zipcode: 11368,
-    age_group: nil
+    age_group: nil,
+    description: Faker::Lorem.paragraph(sentence_count: 8)
 )
 
 Program.create(
@@ -157,7 +161,8 @@ Program.create(
     contact_number: "212.206.0574",
     address: "216 23rd Street",
     zipcode: 11232,
-    age_group: nil
+    age_group: nil,
+    description: Faker::Lorem.paragraph(sentence_count: 8)
 )
 
 Program.create(
@@ -168,7 +173,8 @@ Program.create(
     contact_number: "718.292.4368",
     address: "448 East 149th Street",
     zipcode: 10455,
-    age_group: nil
+    age_group: nil,
+    description: Faker::Lorem.paragraph(sentence_count: 8)
 )
 
 Program.create(
@@ -179,7 +185,8 @@ Program.create(
     contact_number: "212.206.0574",
     address: "241 Taffee Place",
     zipcode: 11205,
-    age_group: nil
+    age_group: nil,
+    description: Faker::Lorem.paragraph(sentence_count: 8)
 )
 
 Program.create(
@@ -190,7 +197,8 @@ Program.create(
     contact_number: "718.447.7740 ext. 248",
     address: "50 Bay Street",
     zipcode: 10301,
-    age_group: nil
+    age_group: nil,
+    description: Faker::Lorem.paragraph(sentence_count: 8)
 )
 
 Program.create(
@@ -201,7 +209,8 @@ Program.create(
     contact_number: "212.695.2220",
     address: "209 West 125th Street",
     zipcode: 10027,
-    age_group: nil
+    age_group: nil,
+    description: Faker::Lorem.paragraph(sentence_count: 8)
 )
 
 Program.create(
@@ -212,7 +221,8 @@ Program.create(
     contact_number: "212.613.0300 ext. 0531",
     address: "460 West 41st Street",
     zipcode: 10036,
-    age_group: "Under 21"
+    age_group: "Under 21",
+    description: Faker::Lorem.paragraph(sentence_count: 8)
 )
 
 Program.create(
@@ -223,7 +233,8 @@ Program.create(
     contact_number: "212.268.3943",
     address: "165 West 131st Street",
     zipcode: 10027,
-    age_group: nil
+    age_group: nil,
+    description: Faker::Lorem.paragraph(sentence_count: 8)
 )
 
 Program.create(
@@ -234,7 +245,8 @@ Program.create(
     contact_number: "212.613.0300 ext. 0532",
     address: "427 West 52nd Street",
     zipcode: 10019,
-    age_group: "Under 21"
+    age_group: "Under 21",
+    description: Faker::Lorem.paragraph(sentence_count: 8)
 )
 
 Program.create(
@@ -245,7 +257,8 @@ Program.create(
     contact_number: "718.526.2400",
     address: "89-31 161St",
     zipcode: 11432,
-    age_group: nil
+    age_group: nil,
+    description: Faker::Lorem.paragraph(sentence_count: 8)
 )
 
 Program.create(
@@ -256,7 +269,8 @@ Program.create(
     contact_number: "646.209.1264",
     address: "2273 3rd Avenue",
     zipcode: 10037,
-    age_group: nil
+    age_group: nil,
+    description: Faker::Lorem.paragraph(sentence_count: 8)
 )
 
 Program.create(
@@ -267,7 +281,8 @@ Program.create(
     contact_number: "718.474.0861",
     address: "Gateway National Recreation Area, Fort Tilden",
     zipcode: 11695,
-    age_group: "Elementary/Middle School"
+    age_group: "Elementary/Middle School",
+    description: Faker::Lorem.paragraph(sentence_count: 8)
 )
 
 Program.create(
@@ -278,7 +293,8 @@ Program.create(
     contact_number: "718.588.8007",
     address: "The Point CDC, 940 Garrison Avenue",
     zipcode: 10474,
-    age_group: "High School" 
+    age_group: "High School",
+    description: Faker::Lorem.paragraph(sentence_count: 8)
 )
 
 Program.create(
@@ -289,7 +305,8 @@ Program.create(
     contact_number: "212.281.9555",
     address: "2672 Frederick Douglass Boulevard",
     zipcode: 10030,
-    age_group: "Elementary"
+    age_group: "Elementary",
+    description: Faker::Lorem.paragraph(sentence_count: 8)
 )
 
 Program.create(
@@ -300,7 +317,8 @@ Program.create(
     contact_number: "718.292.3883",
     address: "345 Brook Avenue",
     zipcode: 10454,
-    age_group: "Middle School"
+    age_group: "Middle School",
+    description: Faker::Lorem.paragraph(sentence_count: 8)
 )
 
 Program.create(
@@ -311,7 +329,8 @@ Program.create(
     contact_number: "718.987.8111",
     address: "250 KRAMER AVENUE",
     zipcode: 10309,
-    age_group: "Elementary"
+    age_group: "Elementary",
+    description: Faker::Lorem.paragraph(sentence_count: 8)
 )
 
 Program.create(
@@ -322,7 +341,8 @@ Program.create(
     contact_number: "347.886.3117",
     address: "1060 CLARKSON AVENUE",
     zipcode: 11212,
-    age_group: "Elementary"
+    age_group: "Elementary",
+    description: Faker::Lorem.paragraph(sentence_count: 8)
 )
 
 Program.create(
@@ -333,7 +353,8 @@ Program.create(
     contact_number: "718.270.2600",
     address: "450 Clarkson Avenue",
     zipcode: 11203,
-    age_group: "High School"
+    age_group: "High School",
+    description: Faker::Lorem.paragraph(sentence_count: 8)
 )
 
 Program.create(
@@ -355,7 +376,8 @@ Program.create(
     contact_number: "718.574.0130",
     address: "272 Moffat Street",
     zipcode: 11207,
-    age_group: "Elementary"
+    age_group: "Elementary",
+    description: Faker::Lorem.paragraph(sentence_count: 8)
 )
 
 Program.create(
@@ -366,7 +388,8 @@ Program.create(
     contact_number: "718.456.5437",
     address: "1715 Weirfield Street",
     zipcode: 11385,
-    age_group: "Elementary"
+    age_group: "Elementary",
+    description: Faker::Lorem.paragraph(sentence_count: 8)
 )
 
 Program.create(
@@ -377,7 +400,8 @@ Program.create(
     contact_number: "347.834.3097",
     address: "700 Sutter Avenue",
     zipcode: 11207,
-    age_group: "Elementary"
+    age_group: "Elementary",
+    description: Faker::Lorem.paragraph(sentence_count: 8)
 )
 
 Program.create(
@@ -388,7 +412,8 @@ Program.create(
     contact_number: "718.773.3343",
     address: "790 East New York Avenue",
     zipcode: 11203,
-    age_group: "Middle School"
+    age_group: "Middle School",
+    description: Faker::Lorem.paragraph(sentence_count: 8)
 )
 
 Program.create(
@@ -399,7 +424,8 @@ Program.create(
     contact_number: "212.942.0043",
     address: "403 West 204th Street",
     zipcode: 10034,
-    age_group: "Elementary"
+    age_group: "Elementary",
+    description: Faker::Lorem.paragraph(sentence_count: 8)
 )
 
 Program.create(
@@ -410,7 +436,8 @@ Program.create(
     contact_number: "718.417.4206",
     address: "408 Grove Street",
     zipcode: 11237,
-    age_group: "Elementary"
+    age_group: "Elementary",
+    description: Faker::Lorem.paragraph(sentence_count: 8)
 )
 
 Program.create(
@@ -421,7 +448,8 @@ Program.create(
     contact_number: "718.987.8111",
     address: "1270 Huguenot Avenue",
     zipcode: 10312,
-    age_group: "Middle School"
+    age_group: "Middle School",
+    description: Faker::Lorem.paragraph(sentence_count: 8)
 )
 
 Program.create(
@@ -432,7 +460,8 @@ Program.create(
     contact_number: "718.346.2200",
     address: "875 Williams Avenue",
     zipcode: 11207,
-    age_group: "Elementary"
+    age_group: "Elementary",
+    description: Faker::Lorem.paragraph(sentence_count: 8)
 )
 
 Program.create(
@@ -443,7 +472,8 @@ Program.create(
     contact_number: "718.859.3800",
     address: "1100 NEWKIRK AVENUE",
     zipcode: 11230,
-    age_group: "High School"
+    age_group: "High School",
+    description: Faker::Lorem.paragraph(sentence_count: 8)
 )
 
 Program.create(
@@ -454,7 +484,8 @@ Program.create(
     contact_number: "212.927.9233",
     address: "586 WEST 177 STREET",
     zipcode: 10033,
-    age_group: "Elementary"
+    age_group: "Elementary",
+    description: Faker::Lorem.paragraph(sentence_count: 8)
 )
 
 Program.create(
@@ -476,7 +507,8 @@ Program.create(
     contact_number: "718.693.3825",
     address: "330 Rugby Road",
     zipcode: 11226,
-    age_group: "Elementary"
+    age_group: "Elementary",
+    description: Faker::Lorem.paragraph(sentence_count: 8)
 )
 
 Program.create(
@@ -487,7 +519,8 @@ Program.create(
     contact_number: "718.644.1318",
     address: "80 MAPLE PARKWAY",
     zipcode: 10303,
-    age_group: "Elementary"
+    age_group: "Elementary",
+    description: Faker::Lorem.paragraph(sentence_count: 8)
 )
 
 User.create(
