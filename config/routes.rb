@@ -14,14 +14,9 @@ Rails.application.routes.draw do
   get "/crisis_shelter", to: "programs#crisis_shelter"
   get "/transportation", to: "programs#transportation"
   get "/out_of_school_time", to: "programs#out_of_school_time"
-
-  # get "/brooklyn", to: "programs#brooklyn"
-  # get "/manhattan", to: "programs#manhattan"
-  # get "/queens", to: "programs#queens"
-  # get "/bronx", to: "programs#bronx"
-  # get "/staten_island", to: "programs#staten_island"
   
   get "/search_community", to: "programs#search_community"
+  get "/search_zipcode", to: "programs#search_zipcode"
 
   get '*path',
       to: 'fallback#index',

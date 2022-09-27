@@ -51,9 +51,15 @@ function App() {
   }
 
   function fetchSearch(search) {
-    fetch(`/search_community?q=${search}`)
-      .then(r => r.json())
-      .then(data => setPrograms(data))
+    if (search.includes("1")) {
+      fetch(`/search_zipcode?q=${search}`)
+        .then(r => r.json())
+        .then(data => setPrograms(data))
+    } else {
+      fetch(`/search_community?q=${search}`)
+        .then(r => r.json())
+        .then(data => setPrograms(data))
+    }
   }
 
   function onEnroll(enrolledProgram) {
