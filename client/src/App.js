@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { BrowserRouter, Switch, Route, useHistory } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Login from './components/Login';
 import NavBar from './components/NavBar';
 import Signup from './components/Signup';
@@ -19,8 +19,6 @@ function App() {
   const [programComp, setProgramComp] = useState(false)
   const [connectionComp, setConnectionComp] = useState(false)
   const [myPrograms, setMyPrograms] = useState([])
-
-  const history = useHistory()
 
   useEffect(() => {
     fetch("/programs")
