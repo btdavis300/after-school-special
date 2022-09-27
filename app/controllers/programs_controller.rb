@@ -37,7 +37,11 @@ class ProgramsController < ApplicationController
 
     def search_zipcode
         result = Program.where(zipcode: params[:q])
-        render json: result, status: :ok
+        if result.exists?
+            render json: result, status: :ok
+        else
+            render json: {error: "No results found"}, status: :not_found
+        end
     end
 
     def search_community

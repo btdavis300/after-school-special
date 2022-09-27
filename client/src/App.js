@@ -55,13 +55,10 @@ function App() {
   function fetchSearch(search) {
     if (search.includes("1")) {
       fetch(`/search_zipcode?q=${search}`)
-        // .then(r => r.json())
-        // .then(data => setPrograms(data))
         .then((res) => {
           if (res.ok) {
             res.json().then((data) => {
               setPrograms(data);
-              history.push('./programs')
             });
           } else {
             res.json().then((errors) => {
@@ -71,8 +68,17 @@ function App() {
         });
     } else {
       fetch(`/search_community?q=${search}`)
-        .then(r => r.json())
-        .then(data => setPrograms(data))
+        .then((res) => {
+          if (res.ok) {
+            res.json().then((data) => {
+              setPrograms(data);
+            });
+          } else {
+            res.json().then((errors) => {
+              console.error(errors);
+            });
+          }
+        });
     }
   }
 
