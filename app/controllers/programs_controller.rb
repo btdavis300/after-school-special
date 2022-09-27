@@ -53,10 +53,15 @@ class ProgramsController < ApplicationController
         end
     end
 
+    def unenrollment
+        enrollment = EnrolledProgram.where(program_id: params[:program], user_id: params[:user]).destroy_all
+        render json: "you have been unerolled", status: :accepted
+    end
+
     private
 
     def search_params
-        params.permit(:q)
+        params.permit(:q, :program, :user)
     end
 
 end

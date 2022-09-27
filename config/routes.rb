@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy"
   get "/logged_in", to: "sessions#logged_in"
 
+  delete "/unenrollment", to: "programs#unenrollment"
+
   get "/drop_in_center", to: "programs#drop_in_center"
   get "/transitional_independent_living", to: "programs#transitional_independent_living"
   get "/street_outreach", to: "programs#street_outreach"

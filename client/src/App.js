@@ -99,13 +99,13 @@ function App() {
   }
 
   function onUnenrollment(unerolledProgram) {
-    // fetch(`/enrolled_programs/${unerolledProgram.id}`, { method: "DELETE" })
-    // .then(res => {
-    //     if (res.ok) {
-    //         setMyPrograms(myPrograms.filter(prog => prog.name !== unerolledProgram.name))
-    //     }
-    // })
-    console.log(unerolledProgram.name)
+    fetch(`/unenrollment?program=${unerolledProgram.id}&user=${currentUser.id}`, { method: "DELETE" })
+      .then(res => {
+        if (res.ok) {
+          setMyPrograms(myPrograms.filter(prog => prog.id !== unerolledProgram.id))
+        }
+      })
+
   }
 
   return (
