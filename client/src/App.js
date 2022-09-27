@@ -8,6 +8,7 @@ import Profile from './components/Profile';
 import MyPrograms from './components/MyPrograms';
 import MyConnections from './components/MyConnections';
 import Programs from './components/Programs';
+import ASFooter from './components/ASFooter';
 
 function App() {
 
@@ -169,6 +170,7 @@ function App() {
           </Route>
         </Switch>
       </div>
+      <ASFooter />
     </BrowserRouter>
   );
 }
