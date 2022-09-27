@@ -4,18 +4,18 @@ import { Navbar, Dropdown, Avatar } from 'flowbite-react'
 import icon from "../assets/as-icon.png"
 
 
-function NavBar({ loggedIn, currentUser, setCurrentUser, setLoggedIn, visible, setVisible, setProfileCard, setProgramComp, setConnectionComp, fetchCategory }) {
+function NavBar({ loggedIn, currentUser, setCurrentUser, setLoggedIn, visible, setVisible, setProfileCard, setProgramComp, setConnectionComp, fetchSearch }) {
     const [search, setSearch] = useState("")
     const history = useHistory()
 
     function handleSearch(e) {
-        const category = e.target.value.toLowerCase().replace(" ", "_")
+        const category = e.target.value
         setSearch(category)
     }
 
     function onSearch(e) {
         e.preventDefault()
-        fetchCategory(search)
+        fetchSearch(search)
         history.push('./programs')
     }
 

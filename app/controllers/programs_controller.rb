@@ -35,28 +35,40 @@ class ProgramsController < ApplicationController
         render json: programs, status: :ok
     end
 
-    def brooklyn
-        programs = Program.where(community: "Brooklyn")
-        render json: programs, status: :ok
+    # def brooklyn
+    #     programs = Program.where(community: "Brooklyn")
+    #     render json: programs, status: :ok
+    # end
+
+    # def manhattan
+    #     programs = Program.where(community: "Manhattan")
+    #     render json: programs, status: :ok
+    # end
+
+    # def queens
+    #     programs = Program.where(community: "Queens")
+    #     render json: programs, status: :ok
+    # end
+
+    # def bronx
+    #     programs = Program.where(community: "Bronx")
+    #     render json: programs, status: :ok
+    # end
+
+    # def staten_island
+    #     programs = Program.where(community: "Staten Island")
+    #     render json: programs, status: :ok
+    # end
+
+    def search_community
+        result = Program.where(community: params[:q].capitalize())
+        render json: result, status: :ok
     end
 
-    def manhattan
-        programs = Program.where(community: "Manhattan")
-        render json: programs, status: :ok
+    private
+
+    def search_params
+        params.permit(:q)
     end
 
-    def queens
-        programs = Program.where(community: "Queens")
-        render json: programs, status: :ok
-    end
-
-    def bronx
-        programs = Program.where(community: "Bronx")
-        render json: programs, status: :ok
-    end
-
-    def staten_island
-        programs = Program.where(community: "Staten Island")
-        render json: programs, status: :ok
-    end
 end

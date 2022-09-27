@@ -50,6 +50,12 @@ function App() {
       .then(data => setPrograms(data))
   }
 
+  function fetchSearch(search) {
+    fetch(`/search_community?q=${search}`)
+      .then(r => r.json())
+      .then(data => setPrograms(data))
+  }
+
   function onEnroll(enrolledProgram) {
     const enroll = {
       user_id: currentUser.id,
@@ -88,7 +94,7 @@ function App() {
         setProfileCard={setProfileCard}
         setProgramComp={setProgramComp}
         setConnectionComp={setConnectionComp}
-        fetchCategory={fetchCategory} />
+        fetchSearch={fetchSearch} />
       <div className="app">
         <Switch>
           <Route path="/signup">
