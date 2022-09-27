@@ -44,6 +44,12 @@ function App() {
   }, [loggedIn]);
 
 
+  function fetchCategory(cat) {
+    fetch(`/${cat}`)
+      .then(r => r.json())
+      .then(data => setPrograms(data))
+  }
+
   function onEnroll(enrolledProgram) {
     const enroll = {
       user_id: currentUser.id,
@@ -81,7 +87,8 @@ function App() {
         setVisible={setVisible}
         setProfileCard={setProfileCard}
         setProgramComp={setProgramComp}
-        setConnectionComp={setConnectionComp} />
+        setConnectionComp={setConnectionComp}
+        fetchCategory={fetchCategory} />
       <div className="app">
         <Switch>
           <Route path="/signup">
@@ -126,9 +133,9 @@ function App() {
             <Programs
               currentUser={currentUser}
               programs={programs}
-              setPrograms={setPrograms}
               loggedIn={loggedIn}
-              onEnroll={onEnroll} />
+              onEnroll={onEnroll}
+              fetchCategory={fetchCategory} />
           </Route>
         </Switch>
       </div>

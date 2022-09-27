@@ -34,4 +34,29 @@ class ProgramsController < ApplicationController
         programs = Program.where(program_type: "Out of School Time")
         render json: programs, status: :ok
     end
+
+    def brooklyn
+        programs = Program.where(community: "Brooklyn")
+        render json: programs, status: :ok
+    end
+
+    def manhattan
+        programs = Program.where(community: "Manhattan")
+        render json: programs, status: :ok
+    end
+
+    def queens
+        programs = Program.where(community: "Queens")
+        render json: programs, status: :ok
+    end
+
+    def bronx
+        programs = Program.where(community: "Bronx")
+        render json: programs, status: :ok
+    end
+
+    def staten_island
+        programs = Program.where(community: "Staten Island")
+        render json: programs, status: :ok
+    end
 end

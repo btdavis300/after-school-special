@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import ProgramCard from './ProgramCard'
 import { Dropdown } from 'flowbite-react'
 
-function Programs({ programs, setPrograms, loggedIn, currentUser, onEnroll }) {
+function Programs({ programs, loggedIn, currentUser, onEnroll, fetchCategory }) {
 
 
 
@@ -21,12 +21,6 @@ function Programs({ programs, setPrograms, loggedIn, currentUser, onEnroll }) {
             let category = e.target.textContent.toLowerCase().replace(" ", "_").replace(" ", "_")
             fetchCategory(category)
         }
-    }
-
-    function fetchCategory(cat) {
-        fetch(`/${cat}`)
-            .then(r => r.json())
-            .then(data => setPrograms(data))
     }
 
     return (
