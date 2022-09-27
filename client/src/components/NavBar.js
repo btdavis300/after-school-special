@@ -16,7 +16,6 @@ function NavBar({ loggedIn, currentUser, setCurrentUser, setLoggedIn, visible, s
     function onSearch(e) {
         e.preventDefault()
         fetchSearch(search)
-        history.push('./programs')
     }
 
 

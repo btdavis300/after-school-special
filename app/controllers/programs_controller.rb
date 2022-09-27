@@ -42,7 +42,11 @@ class ProgramsController < ApplicationController
 
     def search_community
         result = Program.where(community: params[:q].capitalize())
-        render json: result, status: :ok
+        if result.exists?
+            render json: result, status: :ok
+        else
+            render json: {error: "No results found"}, status: :not_found
+        end
     end
 
     private

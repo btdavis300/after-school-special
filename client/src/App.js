@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, useHistory } from 'react-router-dom';
 import Login from './components/Login';
 import NavBar from './components/NavBar';
 import Signup from './components/Signup';
@@ -19,6 +19,8 @@ function App() {
   const [programComp, setProgramComp] = useState(false)
   const [connectionComp, setConnectionComp] = useState(false)
   const [myPrograms, setMyPrograms] = useState([])
+
+  const history = useHistory()
 
   useEffect(() => {
     fetch("/programs")
@@ -53,8 +55,20 @@ function App() {
   function fetchSearch(search) {
     if (search.includes("1")) {
       fetch(`/search_zipcode?q=${search}`)
-        .then(r => r.json())
-        .then(data => setPrograms(data))
+        // .then(r => r.json())
+        // .then(data => setPrograms(data))
+        .then((res) => {
+          if (res.ok) {
+            res.json().then((data) => {
+              setPrograms(data);
+              history.push('./programs')
+            });
+          } else {
+            res.json().then((errors) => {
+              console.error(errors);
+            });
+          }
+        });
     } else {
       fetch(`/search_community?q=${search}`)
         .then(r => r.json())
