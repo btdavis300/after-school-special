@@ -39,7 +39,7 @@ function ProfileCard({ currentUser, setCurrentUser }) {
 
     return (
         <div class='w-3/4'>
-            <div class='flex flex-col sm:flex sm:flex-row sm:justify-between sm:items-center'>
+            <div class='flex flex-col lg:flex lg:flex-row lg:justify-between lg:items-center'>
                 <img class="w-72 h-72 rounded-full " src={profPic} alt="profile picture" />
 
                 <dl class="max-w-md text-gray-900 divide-y divide-gray-200 dark:text-white dark:divide-gray-700">
