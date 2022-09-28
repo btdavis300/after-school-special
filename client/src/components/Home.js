@@ -44,7 +44,7 @@ function Home() {
                                 <svg class="w-6 h-6 dark:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
                             </div>
                             <h3 class="mb-2 text-xl font-bold dark:text-white">Curated For You</h3>
-                            <p class="text-gray-500 dark:text-gray-400">Add a program to "My Programs" for quick reference. Add friends to "My Connections".</p>
+                            <p class="text-gray-500 dark:text-gray-400">Enroll into a program to add it to "My Programs". Add friends to "My Connections" so you have a base.</p>
                         </div>
                         <div>
                             <div class="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-primary-100 lg:h-12 lg:w-12 dark:bg-primary-900">

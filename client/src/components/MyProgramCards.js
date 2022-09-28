@@ -21,7 +21,7 @@ function MyProgramCards({ program, onUnenrollment }) {
     return (
         <div class='flex flex-col items-center'>
 
-            <div className='w-3/4 pt-4'>
+            <div className='pt-4'>
 
                 <p class="block p-6 max-w-3/4 bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
                     <div className='flex flex-row justify-between border-b border-slate-500'>
