@@ -7,10 +7,19 @@ import { Button } from 'flowbite-react'
 function ProfileCard({ currentUser, setCurrentUser }) {
     const [showEdit, setShowEdit] = useState(false)
     const [formData, setFormData] = useState({})
+    const [checked, setChecked] = useState(true)
 
     function handleInputChange(e) {
         setFormData({ ...formData, [e.target.name]: e.target.value });
         console.log(formData)
+    }
+
+    function handleCheckbox(e) {
+        setFormData({ ...formData, [e.target.name]: e.target.checked })
+    }
+
+    function handleChecked() {
+        setChecked(!checked)
     }
 
     const form = document.getElementById("update-form")
@@ -143,6 +152,17 @@ function ProfileCard({ currentUser, setCurrentUser }) {
                             </select>
                         </div>
                     </div>
+                    {currentUser.private ?
+                        <div class="flex items-center mb-4">
+                            <input id="private" name="private" onChange={handleCheckbox} onClick={handleChecked} type="checkbox" checked={checked} value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
+                            <label for="private" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Set to private account?</label>
+                        </div>
+                        :
+                        <div class="flex items-center mb-4">
+                            <input id="private" name="private" onChange={handleCheckbox} onClick={handleChecked} type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
+                            <label for="private" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Set to private account?</label>
+                        </div>
+                    }
                     <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Update</button>
                 </form>
             </div>

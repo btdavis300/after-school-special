@@ -134,7 +134,7 @@ function NavBar({ loggedIn, currentUser, setCurrentUser, setLoggedIn, visible, s
                     <Navbar.Link href="/programs">
                         Programs
                     </Navbar.Link>
-                    <Navbar.Link href="/navbars">
+                    <Navbar.Link href="/connectivity">
                         Connectivity
                     </Navbar.Link>
                     <Navbar.Link href="/navbars">

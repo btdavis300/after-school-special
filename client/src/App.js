@@ -8,6 +8,7 @@ import Profile from './components/Profile';
 import MyConnections from './components/MyConnections';
 import Programs from './components/Programs';
 import ASFooter from './components/ASFooter';
+import Connectivity from './components/Connectivity';
 
 function App() {
 
@@ -19,11 +20,18 @@ function App() {
   const [programComp, setProgramComp] = useState(false)
   const [connectionComp, setConnectionComp] = useState(false)
   const [myPrograms, setMyPrograms] = useState([])
+  const [publicUsers, setPublicUsers] = useState([])
 
   useEffect(() => {
     fetch("/programs")
       .then(r => r.json())
       .then(programsArr => setPrograms(programsArr))
+  }, [])
+
+  useEffect(() => {
+    fetch('/public_users')
+      .then(r => r.json())
+      .then(publicArr => setPublicUsers(publicArr))
   }, [])
 
   useEffect(() => {
@@ -151,6 +159,9 @@ function App() {
           </Route>
           <Route exact path="/profile/my_connections">
             <MyConnections currentUser={currentUser} />
+          </Route>
+          <Route exact path="/connectivity">
+            <Connectivity publicUsers={publicUsers} />
           </Route>
           <Route exact path="/programs">
             <Programs

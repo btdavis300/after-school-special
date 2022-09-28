@@ -532,7 +532,8 @@ User.create(
     zipcode: 29016,
     children_quantity: 2,
     grade_level: "High School",
-    username: "btd300"
+    username: "btd300",
+    private: false
 
 )
 
