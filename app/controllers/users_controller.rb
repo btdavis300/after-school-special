@@ -6,7 +6,7 @@ class UsersController < ApplicationController
     end
 
     def public_users
-        users = User.where(private: false)
+        users = User.select{|user| user != current_user && user.private == false}
         render json: users, status: :ok
     end    
 
