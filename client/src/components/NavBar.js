@@ -143,7 +143,7 @@ function NavBar({ loggedIn, currentUser, setCurrentUser, setLoggedIn, visible, s
                 </Navbar.Collapse>
             </Navbar>
             <div class='flex justify-center'>
-                <form onSubmit={onSearch} class='sm:w-full md:w-6/12 lg:w-2/5 pb-3 pt-3'>
+                <form onSubmit={onSearch} class='w-full sm:w-full md:w-3/4 lg:w-6/12 xl:w-3/5 pb-3 pt-3'>
                     <div class="relative">
                         <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
                             <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
