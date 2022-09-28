@@ -126,6 +126,7 @@ function Login({ visible, setVisible, setCurrentUser, setLoggedIn }) {
                                 Not registered?
                                 <a
                                     href="/signup"
+                                    onClick={() => setVisible(true)}
                                     className="text-blue-700 hover:underline dark:text-blue-500"
                                 >
                                     Create account

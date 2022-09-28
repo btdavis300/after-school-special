@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { Modal, Label, TextInput, Button, Checkbox } from 'flowbite-react'
 
-function Signup({ setCurrentUser, setLoggedIn, setVisible, visible }) {
+function Signup({ setCurrentUser, setLoggedIn }) {
     const history = useHistory()
     const [formData, setFormData] = useState({
         username: "",
@@ -82,7 +82,7 @@ function Signup({ setCurrentUser, setLoggedIn, setVisible, visible }) {
         // </div>
 
         <React.Fragment>
-            <Modal show={visible} size="md" popup={true} onClose={() => setVisible(false)}>
+            <Modal show={true} size="md" popup={true} onClose={() => history.push('./')}>
                 <Modal.Header />
                 <Modal.Body>
                     <form onSubmit={handleSubmit}>
@@ -134,15 +134,6 @@ function Signup({ setCurrentUser, setLoggedIn, setVisible, visible }) {
                             </div>
                             <div className="w-full">
                                 <Button type="submit">Create Account</Button>
-                            </div>
-                            <div className="text-sm font-medium text-gray-500 dark:text-gray-300">
-                                Not registered?
-                                <a
-                                    href="/signup"
-                                    className="text-blue-700 hover:underline dark:text-blue-500"
-                                >
-                                    Create account
-                                </a>
                             </div>
                         </div>
                     </form>

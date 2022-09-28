@@ -5,7 +5,6 @@ import NavBar from './components/NavBar';
 import Signup from './components/Signup';
 import Home from './components/Home';
 import Profile from './components/Profile';
-import MyPrograms from './components/MyPrograms';
 import MyConnections from './components/MyConnections';
 import Programs from './components/Programs';
 import ASFooter from './components/ASFooter';
@@ -126,8 +125,6 @@ function App() {
             <Signup
               setCurrentUser={setCurrentUser}
               setLoggedIn={setLoggedIn}
-              setVisible={setVisible}
-              visible={visible}
             />
           </Route>
           <Route exact path="/login">
@@ -152,11 +149,6 @@ function App() {
               myPrograms={myPrograms}
               onUnenrollment={onUnenrollment} />
           </Route>
-          {/* <Route exact path="/profile/my_programs">
-            <MyPrograms
-              currentUser={currentUser}
-              myPrograms={myPrograms} />
-          </Route> */}
           <Route exact path="/profile/my_connections">
             <MyConnections currentUser={currentUser} />
           </Route>
