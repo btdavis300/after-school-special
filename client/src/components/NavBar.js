@@ -131,7 +131,7 @@ function NavBar({ loggedIn, currentUser, setCurrentUser, setLoggedIn, visible, s
                     >
                         Home
                     </Navbar.Link>
-                    <Navbar.Link href="./programs">
+                    <Navbar.Link href="http://localhost:4000/programs">
                         Programs
                     </Navbar.Link>
                     <Navbar.Link href="./connectivity">
