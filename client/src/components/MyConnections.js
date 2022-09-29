@@ -1,11 +1,11 @@
 import React from 'react'
 import MyConnectionsCard from './MyConnectionsCard'
 
-function MyConnections({ myFriends }) {
+function MyConnections({ myFriends, onUnfriend }) {
     console.log(myFriends)
 
     const friendsCard = myFriends.map(friend => {
-        return <MyConnectionsCard key={friend.id} friend={friend} />
+        return <MyConnectionsCard key={friend.id} friend={friend} onUnfriend={onUnfriend} />
     })
 
     return (

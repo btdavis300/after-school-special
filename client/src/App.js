@@ -132,6 +132,11 @@ function App() {
       .then(setMyFriends([...myFriends, newFriend]))
   }
 
+  function onUnfriend(user) {
+    console.log(user)
+    // Need to find the Friendship ID for the user (similar to enrolled program, pass it through query string in url)
+  }
+
   return (
     <BrowserRouter>
       <NavBar
@@ -174,7 +179,8 @@ function App() {
               connectionComp={connectionComp}
               myPrograms={myPrograms}
               onUnenrollment={onUnenrollment}
-              myFriends={myFriends} />
+              myFriends={myFriends}
+              onUnfriend={onUnfriend} />
           </Route>
           <Route exact path="/profile/my_connections">
             <MyConnections currentUser={currentUser} />

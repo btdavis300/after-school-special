@@ -6,8 +6,12 @@ class FriendshipsController < ApplicationController
     end
 
     def show
-        friendship =Friendship.find_by(id: params[:id])
+        friendship = Friendship.find_by(id: params[:id])
         render json: friendship, status: :accepted
+    end
+
+    def destroy
+        # Need to find by friendship ID somehow.
     end
 
 private
