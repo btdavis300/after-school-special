@@ -3,7 +3,7 @@
 This web application was made as the capstone project for the Flatiron School for Fullstack Development bootcamp. Afterschool Special is intended for parents to find different afterschool programs for their children and to connect with other parents.
 
 ## Hosted By Heroku
-https://after-school-project.herokuapp.com/
+https://afterschool-special.herokuapp.com/
 
 ## Commands to Run on Local Environment
 
@@ -26,16 +26,16 @@ In a new terminal:
 
 As a user I can...
 - Navigate through the displayed database of all afterschool programs.
-- Search for programs based name of program, or location (using zipcode).
+- Search for programs based name of program, or location (using zipcode or community).
 - Browse programs through a selection of filters.
-- Signup to create a profile.
+- Signup to create a profile, through a secured authenication process.
 - Update their profile based on specific criteria.
 - Delete their account.
-- Rate programs through star system.
+- Add users to their "Connections" List.
+- Enroll in a program.
 
 ## Stretch Goals
-- Be able to message other users, either through the database or through web sockets.
-- Be able to add users to their “Connections” List.
+- Be able to message other users, using Active Cable.
 - Set up a “Carpool” request system, where users can request to carpool with other users on their “Connections” List.
 
 
