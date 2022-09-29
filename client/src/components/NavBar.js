@@ -131,13 +131,13 @@ function NavBar({ loggedIn, currentUser, setCurrentUser, setLoggedIn, visible, s
                     >
                         Home
                     </Navbar.Link>
-                    <Navbar.Link href="/programs">
+                    <Navbar.Link href="./programs">
                         Programs
                     </Navbar.Link>
-                    <Navbar.Link href="/connectivity">
+                    <Navbar.Link href="./connectivity">
                         Connectivity
                     </Navbar.Link>
-                    <Navbar.Link href="/navbars">
+                    <Navbar.Link href="./navbars">
                         Carpool
                     </Navbar.Link>
                 </Navbar.Collapse>
