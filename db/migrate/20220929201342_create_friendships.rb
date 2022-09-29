@@ -1,8 +1,8 @@
 class CreateFriendships < ActiveRecord::Migration[7.0]
   def change
     create_table :friendships do |t|
-      t.integer :sender_id
-      t.integer :reciever_id
+      t.integer :follower_id, null: false, foreign_key: true
+      t.integer :followed_id, null: false, foreign_key: true
 
       t.timestamps
     end

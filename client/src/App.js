@@ -20,6 +20,7 @@ function App() {
   const [programComp, setProgramComp] = useState(false)
   const [connectionComp, setConnectionComp] = useState(false)
   const [myPrograms, setMyPrograms] = useState([])
+  const [myFriends, setMyFriends] = useState([])
   const [publicUsers, setPublicUsers] = useState([])
 
   useEffect(() => {
@@ -44,6 +45,7 @@ function App() {
               user => {
                 setCurrentUser(user)
                 setMyPrograms(user.programs)
+                setMyFriends(user.friends)
               }
             )
         }
@@ -155,13 +157,14 @@ function App() {
               programComp={programComp}
               connectionComp={connectionComp}
               myPrograms={myPrograms}
-              onUnenrollment={onUnenrollment} />
+              onUnenrollment={onUnenrollment}
+              myFriends={myFriends} />
           </Route>
           <Route exact path="/profile/my_connections">
             <MyConnections currentUser={currentUser} />
           </Route>
           <Route exact path="/connectivity">
-            <Connectivity publicUsers={publicUsers} />
+            <Connectivity publicUsers={publicUsers} currentUser={currentUser} />
           </Route>
           <Route exact path="/programs">
             <Programs
