@@ -33,6 +33,7 @@ As a user I can...
 - Delete their account.
 - Add users to their "Connections" List.
 - Enroll in a program.
+- UI/UX formatted for both Web and mobile access.
 
 ## Stretch Goals
 - Be able to message other users, using Active Cable.
