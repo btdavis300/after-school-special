@@ -2,10 +2,10 @@ import React from 'react'
 import { Card, Dropdown } from 'flowbite-react'
 import profPic from '../assets/prof-pic-ph.png'
 
-function UserCard({ user, currentUser }) {
+function UserCard({ user, toAddFriend }) {
 
     function handleFriend() {
-        console.log(`friend: ${user.username} and requester: ${currentUser.username}`)
+        toAddFriend(user)
     }
 
     return (

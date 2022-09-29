@@ -2,10 +2,10 @@ import React from 'react'
 import UserCard from './UserCard'
 
 
-function Connectivity({ publicUsers, currentUser }) {
+function Connectivity({ publicUsers, toAddFriend }) {
 
     const usersCard = publicUsers.map(user => {
-        return <UserCard key={user.id} user={user} currentUser={currentUser} />
+        return <UserCard key={user.id} user={user} toAddFriend={toAddFriend} />
     })
 
     return (

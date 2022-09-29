@@ -116,6 +116,22 @@ function App() {
 
   }
 
+  function toAddFriend(user) {
+    const newFriend = {
+      friend_id: user.id,
+      requester_id: currentUser.id
+    }
+    fetch('/friendships', {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newFriend),
+    })
+      .then(r => r.json())
+      .then(setMyFriends([...myFriends, newFriend]))
+  }
+
   return (
     <BrowserRouter>
       <NavBar
@@ -164,7 +180,7 @@ function App() {
             <MyConnections currentUser={currentUser} />
           </Route>
           <Route exact path="/connectivity">
-            <Connectivity publicUsers={publicUsers} currentUser={currentUser} />
+            <Connectivity publicUsers={publicUsers} toAddFriend={toAddFriend} />
           </Route>
           <Route exact path="/programs">
             <Programs
