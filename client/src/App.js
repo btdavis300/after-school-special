@@ -22,6 +22,7 @@ function App() {
   const [myPrograms, setMyPrograms] = useState([])
   const [myFriends, setMyFriends] = useState([])
   const [publicUsers, setPublicUsers] = useState([])
+  const [searchErrors, setSearchErrors] = useState([])
 
   useEffect(() => {
     fetch("/programs")
@@ -70,7 +71,8 @@ function App() {
             });
           } else {
             res.json().then((errors) => {
-              console.error(errors);
+              setSearchErrors(errors);
+              console.log(searchErrors)
             });
           }
         });
@@ -83,7 +85,8 @@ function App() {
             });
           } else {
             res.json().then((errors) => {
-              console.error(errors);
+              setSearchErrors(errors);
+              console.log(searchErrors)
             });
           }
         });
@@ -194,7 +197,8 @@ function App() {
               programs={programs}
               loggedIn={loggedIn}
               onEnroll={onEnroll}
-              fetchCategory={fetchCategory} />
+              fetchCategory={fetchCategory}
+              searchErrors={searchErrors} />
           </Route>
         </Switch>
       </div>

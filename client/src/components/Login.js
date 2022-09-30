@@ -35,7 +35,6 @@ function Login({ visible, setVisible, setCurrentUser, setLoggedIn }) {
             } else {
                 res.json().then((data) => {
                     setErrors(data);
-                    console.log(errors.error)
                 });
             }
         });

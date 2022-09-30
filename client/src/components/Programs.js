@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react'
 import ProgramCard from './ProgramCard'
 import { Dropdown } from 'flowbite-react'
 
-function Programs({ programs, loggedIn, currentUser, onEnroll, fetchCategory }) {
+function Programs({ programs, loggedIn, currentUser, onEnroll, fetchCategory, searchErrors }) {
 
+    console.log(searchErrors)
 
 
     const programCards = programs.map((program) => {
