@@ -179,11 +179,11 @@ function NavBar({ loggedIn, currentUser, setCurrentUser, setLoggedIn, visible, s
                         <button type="submit" class="text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</button>
                     </div>
                 </form >
-                <div className='absolute pt-20 transition-all delay-200'>
+                <div className='absolute pt-20'>
                     {searchErrors.length > 0 ?
                         <></>
                         :
-                        <h6 className='text-sm text-red-600'>{searchErrors.error}</h6>
+                        <h6 className='text-sm animate-bounce-short text-red-600'>{searchErrors.error}</h6>
                     }
                 </div>
             </div>
