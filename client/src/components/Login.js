@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom'
 import { Modal, Label, TextInput, Checkbox, Button } from 'flowbite-react'
 
 function Login({ visible, setVisible, setCurrentUser, setLoggedIn }) {
+    const [errors, setErrors] = useState([]);
     const history = useHistory()
     const [formData, setFormData] = useState({
         email: "",
@@ -32,47 +33,15 @@ function Login({ visible, setVisible, setCurrentUser, setLoggedIn }) {
                     history.push('/profile')
                 });
             } else {
-                res.json().then((errors) => {
-                    console.error(errors);
+                res.json().then((data) => {
+                    setErrors(data);
+                    console.log(errors.error)
                 });
             }
         });
     }
 
-    // return (
-    //     <div className='form-box'>
-    //         <div className='login-box'>
-    //             <h1>Login</h1>
-    //             <div className='form-container'>
-    //                 <form className='login-setup-form' onSubmit={handleSubmit}>
-    //                     <section className='input-form'>
-    //                         <label>Email:</label>
-    //                         <input
-    //                             type='text'
-    //                             name='email'
-    //                             value={email}
-    //                             onChange={handleChange}
-    //                             placeholder="Enter Email"
-    //                         />
-    //                     </section>
-    //                     <section className='input-form'>
-    //                         <label>Password:</label>
-    //                         <input
-    //                             type='password'
-    //                             name='password'
-    //                             value={password}
-    //                             onChange={handleChange}
-    //                             placeholder="Enter Password"
-    //                         />
-    //                     </section>
-    //                     <section className='input-form'>
-    //                         <input className='button' type='submit' value="Login" />
-    //                     </section>
-    //                 </form>
-    //             </div>
-    //         </div>
-    //     </div>
-    // )
+
     return (
         <React.Fragment>
             <Modal show={visible} size="md" popup={true} onClose={() => setVisible(false)}>
@@ -83,6 +52,10 @@ function Login({ visible, setVisible, setCurrentUser, setLoggedIn }) {
                             <h3 className="text-xl font-medium text-gray-900 dark:text-white">
                                 Sign In
                             </h3>
+                            {errors.length > 0 ?
+                                <></>
+                                :
+                                <h6 className='text-sm text-red-600'>{errors.error}</h6>}
                             <div>
                                 <div className="mb-2 block">
                                     <Label htmlFor="email" value="Your email" />
