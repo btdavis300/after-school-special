@@ -3,6 +3,8 @@ import { useHistory } from 'react-router-dom'
 import { Modal, Label, TextInput, Button, Checkbox } from 'flowbite-react'
 
 function Signup({ setCurrentUser, setLoggedIn }) {
+    const [errors, setErrors] = useState([]);
+    const [usernameErrors, setUsernameErrors] = useState("");
     const history = useHistory()
     const [formData, setFormData] = useState({
         username: "",
@@ -34,53 +36,15 @@ function Signup({ setCurrentUser, setLoggedIn }) {
 
                 });
             } else {
-                res.json().then((errors) => {
-                    console.error(errors);
+                res.json().then((data) => {
+                    setErrors(Object.entries(data.errors));
+                    console.log(errors)
                 });
             }
         });
     }
 
     return (
-        // <div>
-        //     <div className="form-box">
-        //         <div className="login-box">
-        //             <h1>Signup</h1>
-        //             <div className="form-container">
-        //                 <form className="login-signup-form" onSubmit={handleSubmit}>
-        //                     <section className="input-form">
-        //                         <label>Username:</label>
-        //                         <input
-        //                             type="text"
-        //                             name="username"
-        //                             value={username}
-        //                             onChange={handleChange}
-        //                             placeholder="  Enter Username">
-        //                         </input>
-        //                     </section>
-
-        //                     <section className="input-form">
-        //                         <label>Email:</label>
-        //                         <input type="text" name="email" value={email} onChange={handleChange} placeholder="  Enter Email" />
-        //                     </section>
-        //                     <section className="input-form">
-        //                         <label>Password:</label>
-        //                         <input
-        //                             type="password"
-        //                             name="password"
-        //                             value={password}
-        //                             onChange={handleChange}
-        //                             placeholder="  Enter Password" />
-        //                     </section>
-        //                     <section className="input-form">
-        //                         <input className="lg-su-button" type="submit" value="Sign up!" />
-        //                     </section>
-        //                 </form>
-        //             </div>
-        //         </div>
-        //     </div>
-        // </div>
-
         <React.Fragment>
             <Modal show={true} size="md" popup={true} onClose={() => history.push('./')}>
                 <Modal.Header />
@@ -91,6 +55,7 @@ function Signup({ setCurrentUser, setLoggedIn }) {
                                 Create Your Account
                             </h3>
                             <div>
+                                {errors ? errors.map(e => <div className='text-sm text-red-600'><span className='text-black dark:text-white'>{e[0] + ': '}</span> {e[1]}</div>) : null}
                                 <div className="mb-2 block">
                                     <Label htmlFor="username" value="Your username" />
                                 </div>

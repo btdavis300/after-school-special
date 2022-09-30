@@ -55,7 +55,8 @@ function Login({ visible, setVisible, setCurrentUser, setLoggedIn }) {
                             {errors.length > 0 ?
                                 <></>
                                 :
-                                <h6 className='text-sm text-red-600'>{errors.error}</h6>}
+                                <h6 className='text-sm text-red-600'>{errors.error}</h6>
+                            }
                             <div>
                                 <div className="mb-2 block">
                                     <Label htmlFor="email" value="Your email" />
