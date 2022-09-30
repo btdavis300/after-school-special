@@ -183,7 +183,7 @@ function NavBar({ loggedIn, currentUser, setCurrentUser, setLoggedIn, visible, s
                     {searchErrors.length > 0 ?
                         <></>
                         :
-                        <h6 className='text-sm animate-bounce-short text-red-600'>{searchErrors.error}</h6>
+                        <h6 className='text-sm animate-bounce text-red-600'>{searchErrors.error}</h6>
                     }
                 </div>
             </div>
