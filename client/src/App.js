@@ -129,7 +129,7 @@ function App() {
       body: JSON.stringify(newFriend),
     })
       .then(r => r.json())
-      .then(setMyFriends([...myFriends, newFriend]))
+      .then(setMyFriends([...myFriends, user]))
   }
 
   function onUnfriend(user) {
