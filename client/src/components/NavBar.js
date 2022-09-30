@@ -4,7 +4,7 @@ import { Navbar, Dropdown, Avatar } from 'flowbite-react'
 import icon from "../assets/as-icon.png"
 
 
-function NavBar({ loggedIn, currentUser, setCurrentUser, setLoggedIn, visible, setVisible, setProfileCard, setProgramComp, setConnectionComp, fetchSearch }) {
+function NavBar({ loggedIn, currentUser, setCurrentUser, setLoggedIn, visible, setVisible, setProfileCard, setProgramComp, setConnectionComp, fetchSearch, searchErrors, searchFunction, errorsFunction }) {
     const [search, setSearch] = useState("")
     const history = useHistory()
 
@@ -15,8 +15,35 @@ function NavBar({ loggedIn, currentUser, setCurrentUser, setLoggedIn, visible, s
 
     function onSearch(e) {
         e.preventDefault()
-        fetchSearch(search)
-        history.push('/programs')
+        if (search.includes("1")) {
+            fetch(`/search_zipcode?q=${search}`)
+                .then((res) => {
+                    if (res.ok) {
+                        res.json().then((data) => {
+                            searchFunction(data)
+                            history.push('/programs')
+                        });
+                    } else {
+                        res.json().then((errors) => {
+                            errorsFunction(errors)
+                        });
+                    }
+                });
+        } else {
+            fetch(`/search_community?q=${search}`)
+                .then((res) => {
+                    if (res.ok) {
+                        res.json().then((data) => {
+                            searchFunction(data)
+                            history.push('/programs')
+                        });
+                    } else {
+                        res.json().then((errors) => {
+                            errorsFunction(errors)
+                        });
+                    }
+                });
+        }
     }
 
 
@@ -142,7 +169,7 @@ function NavBar({ loggedIn, currentUser, setCurrentUser, setLoggedIn, visible, s
                     </Navbar.Link>
                 </Navbar.Collapse>
             </Navbar>
-            <div class='flex justify-center'>
+            <div class='flex flex-col items-center'>
                 <form onSubmit={onSearch} class='w-full sm:w-full md:w-3/4 lg:w-6/12 xl:w-3/5 pb-3 pt-3'>
                     <div class="relative">
                         <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
@@ -152,12 +179,16 @@ function NavBar({ loggedIn, currentUser, setCurrentUser, setLoggedIn, visible, s
                         <button type="submit" class="text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</button>
                     </div>
                 </form >
+                <div className='absolute pt-20 transition-all delay-200'>
+                    {searchErrors.length > 0 ?
+                        <></>
+                        :
+                        <h6 className='text-sm text-red-600'>{searchErrors.error}</h6>
+                    }
+                </div>
             </div>
 
 
-
-
-            {/* <Link className="route-link" to="/signup">Signup</Link> */}
         </div >
     )
 }

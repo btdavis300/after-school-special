@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import Login from './components/Login';
 import NavBar from './components/NavBar';
 import Signup from './components/Signup';
@@ -23,6 +23,7 @@ function App() {
   const [myFriends, setMyFriends] = useState([])
   const [publicUsers, setPublicUsers] = useState([])
   const [searchErrors, setSearchErrors] = useState([])
+  const [redirect, setRedirect] = useState(false)
 
   useEffect(() => {
     fetch("/programs")
@@ -58,39 +59,21 @@ function App() {
   function fetchCategory(cat) {
     fetch(`/${cat}`)
       .then(r => r.json())
-      .then(data => setPrograms(data))
+      .then(data => {
+        setPrograms(data)
+      })
   }
 
-  function fetchSearch(search) {
-    if (search.includes("1")) {
-      fetch(`/search_zipcode?q=${search}`)
-        .then((res) => {
-          if (res.ok) {
-            res.json().then((data) => {
-              setPrograms(data);
-            });
-          } else {
-            res.json().then((errors) => {
-              setSearchErrors(errors);
-              console.log(searchErrors)
-            });
-          }
-        });
-    } else {
-      fetch(`/search_community?q=${search}`)
-        .then((res) => {
-          if (res.ok) {
-            res.json().then((data) => {
-              setPrograms(data);
-            });
-          } else {
-            res.json().then((errors) => {
-              setSearchErrors(errors);
-              console.log(searchErrors)
-            });
-          }
-        });
-    }
+
+  function searchFunction(search) {
+    setPrograms(search);
+    setSearchErrors([])
+    setRedirect(true)
+  }
+
+  function errorsFunction(errors) {
+    setSearchErrors(errors)
+    setRedirect(false);
   }
 
   function onEnroll(enrolledProgram) {
@@ -152,7 +135,9 @@ function App() {
         setProfileCard={setProfileCard}
         setProgramComp={setProgramComp}
         setConnectionComp={setConnectionComp}
-        fetchSearch={fetchSearch} />
+        searchFunction={searchFunction}
+        searchErrors={searchErrors}
+        errorsFunction={errorsFunction} />
       <div className="app">
         <Switch>
           <Route path="/signup">
@@ -198,7 +183,7 @@ function App() {
               loggedIn={loggedIn}
               onEnroll={onEnroll}
               fetchCategory={fetchCategory}
-              searchErrors={searchErrors} />
+            />
           </Route>
         </Switch>
       </div>
