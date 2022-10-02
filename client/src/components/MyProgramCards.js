@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Button, Modal } from 'flowbite-react'
 
 
-function MyProgramCards({ program, onUnenrollment }) {
+function MyProgramCards({ program, onUnenrollment, setHideAlert }) {
     const [modal, setModal] = useState(false)
     const [contact, setContact] = useState(false)
 
@@ -17,6 +17,7 @@ function MyProgramCards({ program, onUnenrollment }) {
     function handleUnerollment(program) {
         onUnenrollment(program)
         setModal(false)
+        setHideAlert("")
     }
     return (
         <div class='flex flex-col items-center'>

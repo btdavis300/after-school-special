@@ -1,66 +1,55 @@
 import React, { useState } from 'react'
 import MyProgramCards from './MyProgramCards'
-import { Button, Modal, HiOutlineExclamationCircle } from 'flowbite-react'
+import { Alert } from 'flowbite-react'
 
 function MyPrograms({ currentUser, myPrograms, onUnenrollment }) {
     const [modal, setModal] = useState(false)
+    const [hideAlert, setHideAlert] = useState("hidden")
 
-    function handleUnerollment(program) {
-        onUnenrollment(program)
-        setModal(false)
+    // function handleUnerollment(program) {
+    //     onUnenrollment(program)
+    //     setModal(false)
+    // }
+
+    function handleAlert() {
+        setHideAlert("hidden")
     }
 
     const programCards = myPrograms.map((program) => {
 
         return <div class='flex flex-col items-center'>
-            {/* <div class='w-3/4 pt-2 flex justify-end'>
-                <React.Fragment>
-                    <Button onClick={() => setModal(true)}>
-                        Unenroll
-                    </Button>
-                    <Modal
-                        show={modal}
-                        size="md"
-                        popup={true}
-                        onClose={() => setModal(false)}
-                    >
-                        <Modal.Header />
-                        <Modal.Body>
-                            <div className="text-center">
-                                <h3 className="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">
-                                    Are you sure you want to unenroll from {program.name}?
-                                </h3>
-                                <div className="flex justify-center gap-4">
-                                    <Button
-                                        color="failure"
-                                        onClick={() => console.log(program)}
-                                    >
-                                        Yes, I'm sure
-                                    </Button>
-                                    <Button
-                                        color="gray"
-                                        onClick={() => setModal(false)}
-                                    >
-                                        No, cancel
-                                    </Button>
-                                </div>
-                            </div>
-                        </Modal.Body>
-                    </Modal>
-                </React.Fragment>
-            </div> */}
-
-            {/* <div class='w-3/4 pt-2 flex justify-end'>
-                <button type="button" onClick={() => handleUnerollment(program)} class="focus:outline-none text-white bg-red-700 
-            hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-3 py-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Unenroll</button>
-            </div> */}
-            <MyProgramCards key={program.id} program={program} onUnenrollment={onUnenrollment} />
+            <MyProgramCards key={program.id} program={program} onUnenrollment={onUnenrollment} setHideAlert={setHideAlert} />
         </div>
     })
 
     return (
         <div class='w-3/4 flex flex-col items-center pt-4 pb-5'>
             <h1 class="text-5xl font-extrabold dark:text-white pb-6">My Programs</h1>
+            {/* <Alert
+                color="success"
+                className=''
+                onDismiss={function onDismiss() { return alert("Alert dismissed!") }}
+            >
+                <span>
+                    <span className="font-bold">
+                        You have been unenrolled.
+                    </span>
+                    {' '}We are sorry to see you go 🙁
+                </span>
+            </Alert> */}
+            <div className={hideAlert}>
+                <div id="alert-2" class="flex p-4 mb-4 bg-red-100 rounded-lg dark:bg-red-200" role="alert">
+                    <svg aria-hidden="true" class="flex-shrink-0 w-5 h-5 text-red-700 dark:text-red-800" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
+                    <span class="sr-only">Info</span>
+                    <div class="ml-3 text-sm font-bold text-red-700 dark:text-red-800">
+                        You have been unenrolled.
+                    </div>
+                    <button onClick={handleAlert} type="button" class="ml-auto -mx-1.5 -my-1.5 bg-red-100 text-red-500 rounded-lg focus:ring-2 focus:ring-red-400 p-1.5 hover:bg-red-200 inline-flex h-8 w-8 dark:bg-red-200 dark:text-red-600 dark:hover:bg-red-300" data-dismiss-target="#alert-2" aria-label="Close">
+                        <span class="sr-only">Close</span>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                    </button>
+                </div>
+            </div>
             {programCards}
         </div>
     )
