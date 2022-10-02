@@ -14,6 +14,9 @@ Rails.application.routes.draw do
   # Unenrollment Route
   delete "/unenrollment", to: "programs#unenrollment"
 
+  # Unfriend Route
+  delete "/unfriend", to: "friendships#unfriend"
+
   # Category Routes
   get "/drop_in_center", to: "programs#drop_in_center"
   get "/transitional_independent_living", to: "programs#transitional_independent_living"

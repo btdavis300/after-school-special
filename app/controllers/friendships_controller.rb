@@ -10,8 +10,9 @@ class FriendshipsController < ApplicationController
         render json: friendship, status: :accepted
     end
 
-    def destroy
-        # Need to find by friendship ID somehow.
+    def unfriend
+        unfriend = Friendship.where(friend_id: params[:friend_id], requester_id: params[:requester_id]).destroy_all
+        render json: "you have unfriended.", status: :accepted
     end
 
 private

@@ -120,7 +120,12 @@ function App() {
 
   function onUnfriend(user) {
     console.log(user)
-    // Need to find the Friendship ID for the user (similar to enrolled program, pass it through query string in url)
+    fetch(`/unfriend?friend_id=${user.id}&requester_id=${currentUser.id}`, { method: "DELETE" })
+      .then(res => {
+        if (res.ok) {
+          setMyFriends(myFriends.filter(friend => friend.id !== user.id))
+        }
+      })
   }
 
   return (
