@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-function ProgramCard({ program, loggedIn, currentUser, onEnroll }) {
+function ProgramCard({ program, loggedIn, onEnroll, setHideAlert }) {
     const [contact, setContact] = useState(false)
     const [toEnroll, setToEnroll] = useState(false)
 
@@ -17,6 +17,7 @@ function ProgramCard({ program, loggedIn, currentUser, onEnroll }) {
     function handleEnroll() {
         onEnroll(program)
         setToEnroll(!toEnroll)
+        setHideAlert("")
     }
 
     return (
