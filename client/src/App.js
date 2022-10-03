@@ -9,6 +9,7 @@ import MyConnections from './components/MyConnections';
 import Programs from './components/Programs';
 import ASFooter from './components/ASFooter';
 import Connectivity from './components/Connectivity';
+import profPic from './assets/prof-pic-ph.png'
 
 function App() {
 
@@ -173,20 +174,23 @@ function App() {
           <Route exact path="/">
             <Home />
           </Route>
-          <Route exact path="/profile">
-            <Profile
-              currentUser={currentUser}
-              setCurrentUser={setCurrentUser}
-              setProfileCard={setProfileCard}
-              setProgramComp={setProgramComp}
-              setConnectionComp={setConnectionComp}
-              programComp={programComp}
-              connectionComp={connectionComp}
-              myPrograms={myPrograms}
-              onUnenrollment={onUnenrollment}
-              myFriends={myFriends}
-              onUnfriend={onUnfriend} />
-          </Route>
+          {currentUser &&
+            <Route exact path="/profile">
+              <Profile
+                currentUser={currentUser}
+                setCurrentUser={setCurrentUser}
+                setProfileCard={setProfileCard}
+                setProgramComp={setProgramComp}
+                setConnectionComp={setConnectionComp}
+                programComp={programComp}
+                connectionComp={connectionComp}
+                myPrograms={myPrograms}
+                onUnenrollment={onUnenrollment}
+                myFriends={myFriends}
+                onUnfriend={onUnfriend}
+                profPhoto={profPhoto} />
+            </Route>
+          }
           <Route exact path="/profile/my_connections">
             <MyConnections currentUser={currentUser} />
           </Route>

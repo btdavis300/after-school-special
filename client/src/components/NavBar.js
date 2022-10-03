@@ -103,7 +103,8 @@ function NavBar({ loggedIn, currentUser, setCurrentUser, setLoggedIn, visible, s
                         <Dropdown
                             arrowIcon={false}
                             inline={true}
-                            label={<img class='w-12 h-12 rounded-full border-2 border-gray-400' src={profPhoto.image_url} alt='' />}
+                            label={currentUser ? <img class='object-cover w-12 h-12 rounded-full border-2 border-gray-400' src={profPhoto.image_url} alt='' /> :
+                                <Avatar alt="User settings" rounded={true} />}
                         >
                             <Dropdown.Header>
                                 <span className="block text-sm">

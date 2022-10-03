@@ -18,8 +18,12 @@ def create
 end
 
 def current_user_photos
-    photos = ProfilePhoto.where(user_id: params[:id]).last
-    render json: photos, status: :ok
+    photos = ProfilePhoto.where(user_id: params[:id])
+    if photos.exists?
+        render json: photos.last, status: :ok
+    else
+        head :no_content
+    end
 end
 
 private

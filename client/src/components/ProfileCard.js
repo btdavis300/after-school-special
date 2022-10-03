@@ -4,7 +4,7 @@ import { Button } from 'flowbite-react'
 
 
 
-function ProfileCard({ currentUser, setCurrentUser }) {
+function ProfileCard({ currentUser, setCurrentUser, profPhoto }) {
     const [showEdit, setShowEdit] = useState(false)
     const [formData, setFormData] = useState({})
     const [checked, setChecked] = useState(true)
@@ -45,8 +45,7 @@ function ProfileCard({ currentUser, setCurrentUser }) {
         form.scrollIntoView({ behavior: "smooth" });
     }
 
-    function handleImage(e) {
-        e.preventDefault()
+    function handleImage() {
         const data = new FormData()
         data.append('user_id', currentUser.id)
         data.append('image', imageData)
@@ -58,14 +57,19 @@ function ProfileCard({ currentUser, setCurrentUser }) {
 
 
     return (
-        <div class='w-3/4'>
+        <div class='w-4/5'>
             <div class='flex flex-col lg:flex lg:flex-row lg:justify-between lg:items-center'>
-                <img class="w-72 h-72 rounded-full " src={profPic} alt="profile picture" />
-
-                <form onSubmit={handleImage}>
-                    <input onChange={(e) => setImageData(e.target.files[0])} type="file" name="image" id="image" />
-                    <button type="submit" class="text-black dark:text-white px-5 py-2 rounded-lg bg-blue-600">Update Profile Photo</button>
-                </form>
+                <div className='py-5 flex flex-col items-center'>
+                    <div>
+                        <img class="object-cover w-72 h-72 rounded-full " src={profPhoto.image_url} alt="profile picture" />
+                    </div>
+                    <div className='pt-5'>
+                        <form className='flex flex-col w-28' onSubmit={handleImage}>
+                            <input onChange={(e) => setImageData(e.target.files[0])} class='text-black dark:text-white bg-gray-800 rounded-lg' type="file" name="image" id="image" />
+                            <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-2 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Update Photo</button>
+                        </form>
+                    </div>
+                </div>
 
                 <dl class="max-w-md text-gray-900 divide-y divide-gray-200 dark:text-white dark:divide-gray-700">
                     <div class="flex flex-col pb-3">
