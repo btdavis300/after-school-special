@@ -60,11 +60,21 @@ function App() {
 
   function fetchProfPhoto(id) {
     fetch(`/current_user_photos?id=${id}`)
-      .then(r => r.json())
-      .then(photosArr => {
-        setProfPhoto(photosArr)
-        console.log(profPhoto)
+      .then((res) => {
+        if (res.ok) {
+          res.json().then((photosArr) => {
+            setProfPhoto(photosArr);
+          })
+        } else {
+          setProfPhoto([{ "ProfPhoto": profPic }])
+          console.log(profPhoto)
+        }
       })
+    // .then(r => r.json())
+    // .then(photosArr => {
+    //   setProfPhoto(photosArr)
+    //   console.log(profPhoto)
+    // })
   }
 
 

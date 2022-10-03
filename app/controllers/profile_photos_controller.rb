@@ -22,7 +22,7 @@ def current_user_photos
     if photos.exists?
         render json: photos.last, status: :ok
     else
-        head :no_content
+        render json: {image_url: "https://i0.wp.com/researchictafrica.net/wp/wp-content/uploads/2016/10/default-profile-pic.jpg?ssl=1"}
     end
 end
 
