@@ -4,7 +4,7 @@ import { Navbar, Dropdown, Avatar } from 'flowbite-react'
 import icon from "../assets/as-icon.png"
 
 
-function NavBar({ loggedIn, currentUser, setCurrentUser, setLoggedIn, visible, setVisible, setProfileCard, setProgramComp, setConnectionComp, fetchSearch, searchErrors, searchFunction, errorsFunction }) {
+function NavBar({ loggedIn, currentUser, setCurrentUser, setLoggedIn, visible, setVisible, setProfileCard, setProgramComp, setConnectionComp, fetchSearch, searchErrors, searchFunction, errorsFunction, profPhoto }) {
     const [search, setSearch] = useState("")
     const history = useHistory()
 
@@ -92,7 +92,7 @@ function NavBar({ loggedIn, currentUser, setCurrentUser, setLoggedIn, visible, s
                     <img
                         src={icon}
                         className="mr-3 h-6 sm:h-9"
-                        alt="Flowbite Logo"
+                        alt="Afterschool Special"
                     />
                     <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
                         Afterschool Special
@@ -103,7 +103,7 @@ function NavBar({ loggedIn, currentUser, setCurrentUser, setLoggedIn, visible, s
                         <Dropdown
                             arrowIcon={false}
                             inline={true}
-                            label={<Avatar alt="User settings" rounded={true} bordered={true} />}
+                            label={<img class='w-12 h-12 rounded-full border-2 border-gray-400' src={profPhoto.image_url} alt='' />}
                         >
                             <Dropdown.Header>
                                 <span className="block text-sm">

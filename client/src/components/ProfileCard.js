@@ -8,6 +8,7 @@ function ProfileCard({ currentUser, setCurrentUser }) {
     const [showEdit, setShowEdit] = useState(false)
     const [formData, setFormData] = useState({})
     const [checked, setChecked] = useState(true)
+    const [imageData, setImageData] = useState(null)
 
     function handleInputChange(e) {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -39,10 +40,20 @@ function ProfileCard({ currentUser, setCurrentUser }) {
             });
     }
 
-
     function handleEdit() {
         setShowEdit(!showEdit)
         form.scrollIntoView({ behavior: "smooth" });
+    }
+
+    function handleImage(e) {
+        e.preventDefault()
+        const data = new FormData()
+        data.append('user_id', currentUser.id)
+        data.append('image', imageData)
+        fetch('/profile_photos', {
+            method: "POST",
+            body: data
+        })
     }
 
 
@@ -50,6 +61,11 @@ function ProfileCard({ currentUser, setCurrentUser }) {
         <div class='w-3/4'>
             <div class='flex flex-col lg:flex lg:flex-row lg:justify-between lg:items-center'>
                 <img class="w-72 h-72 rounded-full " src={profPic} alt="profile picture" />
+
+                <form onSubmit={handleImage}>
+                    <input onChange={(e) => setImageData(e.target.files[0])} type="file" name="image" id="image" />
+                    <button type="submit" class="text-black dark:text-white px-5 py-2 rounded-lg bg-blue-600">Update Profile Photo</button>
+                </form>
 
                 <dl class="max-w-md text-gray-900 divide-y divide-gray-200 dark:text-white dark:divide-gray-700">
                     <div class="flex flex-col pb-3">

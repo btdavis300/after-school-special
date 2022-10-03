@@ -24,6 +24,7 @@ function App() {
   const [publicUsers, setPublicUsers] = useState([])
   const [searchErrors, setSearchErrors] = useState([])
   const [redirect, setRedirect] = useState(false)
+  const [profPhoto, setProfPhoto] = useState([])
 
   useEffect(() => {
     fetch("/programs")
@@ -48,12 +49,22 @@ function App() {
                 setCurrentUser(user)
                 setMyPrograms(user.programs)
                 setMyFriends(user.friends)
+                fetchProfPhoto(user.id)
               }
             )
         }
       }
       )
   }, [loggedIn]);
+
+  function fetchProfPhoto(id) {
+    fetch(`/current_user_photos?id=${id}`)
+      .then(r => r.json())
+      .then(photosArr => {
+        setProfPhoto(photosArr)
+        console.log(profPhoto)
+      })
+  }
 
 
   function fetchCategory(cat) {
@@ -142,7 +153,8 @@ function App() {
         setConnectionComp={setConnectionComp}
         searchFunction={searchFunction}
         searchErrors={searchErrors}
-        errorsFunction={errorsFunction} />
+        errorsFunction={errorsFunction}
+        profPhoto={profPhoto} />
       <div className="app">
         <Switch>
           <Route path="/signup">

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :profile_photos
   resources :friendships
   resources :enrolled_programs
   resources :ratings
@@ -31,6 +32,9 @@ Rails.application.routes.draw do
 
   # Public Users Routes
   get "/public_users", to: "users#public_users"
+
+  # Profile Photo Route
+  get "current_user_photos", to: "profile_photos#current_user_photos"
 
   get '*path',
       to: 'fallback#index',

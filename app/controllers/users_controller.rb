@@ -22,7 +22,7 @@ class UsersController < ApplicationController
 
     def show
         user = User.find_by(id: params[:id])
-        render json: user, status: :accepted
+        render json: user status: :accepted
     end
 
     def update
