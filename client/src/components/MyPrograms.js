@@ -1,9 +1,8 @@
 import React, { useState } from 'react'
 import MyProgramCards from './MyProgramCards'
-import { Alert } from 'flowbite-react'
+
 
 function MyPrograms({ currentUser, myPrograms, onUnenrollment }) {
-    const [modal, setModal] = useState(false)
     const [hideAlert, setHideAlert] = useState("hidden")
 
     // function handleUnerollment(program) {

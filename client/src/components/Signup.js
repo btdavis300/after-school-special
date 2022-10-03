@@ -4,7 +4,6 @@ import { Modal, Label, TextInput, Button, Checkbox } from 'flowbite-react'
 
 function Signup({ setCurrentUser, setLoggedIn }) {
     const [errors, setErrors] = useState([]);
-    const [usernameErrors, setUsernameErrors] = useState("");
     const history = useHistory()
     const [formData, setFormData] = useState({
         username: "",

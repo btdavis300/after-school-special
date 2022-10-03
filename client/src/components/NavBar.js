@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
-import { Navbar, Dropdown, Avatar } from 'flowbite-react'
+import { Navbar, Dropdown } from 'flowbite-react'
 import icon from "../assets/as-icon.png"
+import defaultpic from '../assets/profile-pic.webp'
 
 
 function NavBar({ loggedIn, currentUser, setCurrentUser, setLoggedIn, visible, setVisible, setProfileCard, setProgramComp, setConnectionComp, fetchSearch, searchErrors, searchFunction, errorsFunction, profPhoto }) {
@@ -104,7 +105,7 @@ function NavBar({ loggedIn, currentUser, setCurrentUser, setLoggedIn, visible, s
                             arrowIcon={false}
                             inline={true}
                             label={currentUser ? <img class='object-cover w-12 h-12 rounded-full border-2 border-gray-400' src={profPhoto.image_url} alt='' /> :
-                                <Avatar alt="User settings" rounded={true} />}
+                                null}
                         >
                             <Dropdown.Header>
                                 <span className="block text-sm">
@@ -135,7 +136,7 @@ function NavBar({ loggedIn, currentUser, setCurrentUser, setLoggedIn, visible, s
                         <Dropdown
                             arrowIcon={false}
                             inline={true}
-                            label={<Avatar alt="User settings" rounded={true} bordered={true} />}
+                            label={<img class='object-cover w-12 h-12 rounded-full border-2 border-gray-400' src={defaultpic} alt='' />}
                         >
                             <Dropdown.Header>
                                 <span className="block text-sm font-bold">

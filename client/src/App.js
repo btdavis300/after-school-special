@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Login from './components/Login';
 import NavBar from './components/NavBar';
 import Signup from './components/Signup';
@@ -9,7 +9,6 @@ import MyConnections from './components/MyConnections';
 import Programs from './components/Programs';
 import ASFooter from './components/ASFooter';
 import Connectivity from './components/Connectivity';
-import profPic from './assets/prof-pic-ph.png'
 
 function App() {
 
@@ -60,21 +59,10 @@ function App() {
 
   function fetchProfPhoto(id) {
     fetch(`/current_user_photos?id=${id}`)
-      .then((res) => {
-        if (res.ok) {
-          res.json().then((photosArr) => {
-            setProfPhoto(photosArr);
-          })
-        } else {
-          setProfPhoto([{ "ProfPhoto": profPic }])
-          console.log(profPhoto)
-        }
+      .then(r => r.json())
+      .then(photosArr => {
+        setProfPhoto(photosArr)
       })
-    // .then(r => r.json())
-    // .then(photosArr => {
-    //   setProfPhoto(photosArr)
-    //   console.log(profPhoto)
-    // })
   }
 
 

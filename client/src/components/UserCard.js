@@ -1,12 +1,22 @@
-import React from 'react'
-import { Card, Dropdown } from 'flowbite-react'
+import React, { useState, useEffect } from 'react'
+import { Card } from 'flowbite-react'
 import profPic from '../assets/prof-pic-ph.png'
 
 function UserCard({ user, toAddFriend }) {
+    const [profPhoto, setProfPhoto] = useState([])
 
     function handleFriend() {
         toAddFriend(user)
     }
+
+    useEffect(() => {
+        fetch(`/current_user_photos?id=${user.id}`)
+            .then(r => r.json())
+            .then(photosArr => {
+                setProfPhoto(photosArr)
+            })
+    }, []);
+
 
     return (
         <div class='p-3'>
@@ -14,32 +24,11 @@ function UserCard({ user, toAddFriend }) {
             <div className="max-w-sm">
                 <Card>
                     <div className="flex justify-end px-4 pt-4">
-                        <Dropdown
-                            inline={true}
-                            label=""
-                        >
-                            <Dropdown.Item>
-                                <a
-                                    href="#"
-                                    className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white"
-                                >
-                                    Export Data
-                                </a>
-                            </Dropdown.Item>
-                            <Dropdown.Item>
-                                <a
-                                    href="#"
-                                    className="block py-2 px-4 text-sm text-red-600 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white"
-                                >
-                                    Delete
-                                </a>
-                            </Dropdown.Item>
-                        </Dropdown>
                     </div>
                     <div className="flex flex-col items-center pb-10">
                         <img
-                            className="mb-3 h-24 w-24 rounded-full shadow-lg"
-                            src={profPic}
+                            className="object-cover mb-3 h-24 w-24 rounded-full shadow-lg"
+                            src={profPhoto.image_url}
                             alt="profile"
                         />
                         <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">
