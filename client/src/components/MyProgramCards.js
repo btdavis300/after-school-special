@@ -18,6 +18,7 @@ function MyProgramCards({ program, onUnenrollment, setHideAlert }) {
         onUnenrollment(program)
         setModal(false)
         setHideAlert("")
+        setTimeout(function () { setHideAlert("hidden") }, 5000)
     }
     return (
         <div class='flex flex-col items-center'>

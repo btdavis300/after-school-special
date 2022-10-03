@@ -18,7 +18,9 @@ function ProgramCard({ program, loggedIn, onEnroll, setHideAlert }) {
         onEnroll(program)
         setToEnroll(!toEnroll)
         setHideAlert("")
+        setTimeout(function () { setHideAlert("hidden") }, 5000)
     }
+
 
     return (
         <div className='w-3/4 pt-4'>
