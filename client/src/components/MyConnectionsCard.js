@@ -1,20 +1,30 @@
-import React, { useState } from 'react'
-import profPic from '../assets/prof-pic-ph.png'
+import React, { useState, useEffect } from 'react'
 import { Button, Modal } from 'flowbite-react'
 
 function MyConnectionsCard({ friend, onUnfriend }) {
     const [modal, setModal] = useState(false)
+    const [profPhoto, setProfPhoto] = useState([])
 
     function handleUnfriend() {
         onUnfriend(friend)
     }
+
+    useEffect(() => {
+        fetch(`/current_user_photos?id=${friend.id}`)
+            .then(r => r.json())
+            .then(photosArr => {
+                setProfPhoto(photosArr)
+            })
+    }, []);
+
+    console.log(profPhoto)
 
     return (
         <>
             <li class="py-3 sm:py-4">
                 <div class="flex items-center space-x-4">
                     <div class="flex-shrink-0">
-                        <img class="w-8 h-8 rounded-full" src={profPic} alt="profile" />
+                        <img class="object-cover w-8 h-8 rounded-full" src={profPhoto.image_url} alt="profile" />
                     </div>
                     <div class="flex-1 min-w-0">
                         <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
