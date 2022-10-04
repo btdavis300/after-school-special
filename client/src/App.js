@@ -175,6 +175,10 @@ function App() {
     })
   }
 
+  function newMessage(user) {
+    console.log(user)
+  }
+
   return (
     <BrowserRouter>
       <NavBar
@@ -234,7 +238,7 @@ function App() {
             <Messages currentUser={currentUser} myFriends={myFriends} />
           </Route>
           <Route exact path="/connectivity">
-            <Connectivity publicUsers={publicUsers} newFriendRequest={newFriendRequest} />
+            <Connectivity publicUsers={publicUsers} newFriendRequest={newFriendRequest} newMessage={newMessage} />
           </Route>
           <Route exact path="/programs">
             <Programs
