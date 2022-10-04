@@ -2,14 +2,14 @@ import React from 'react'
 import FriendRequestCard from './FriendRequestCard'
 import MyConnectionsCard from './MyConnectionsCard'
 
-function MyConnections({ myFriends, onUnfriend, friendRequests, onFriend, toAddFriend }) {
+function MyConnections({ myFriends, onUnfriend, friendRequests, onFriend, toAddFriend, reciprocateFriend }) {
 
     const friendsCard = myFriends.map(friend => {
         return <MyConnectionsCard key={friend.id} friend={friend} onUnfriend={onUnfriend} />
     })
 
     const friendRequestsCard = friendRequests.map(request => {
-        return <FriendRequestCard key={request.id} friend={request} onFriend={onFriend} toAddFriend={toAddFriend} />
+        return <FriendRequestCard key={request.id} friend={request} onFriend={onFriend} toAddFriend={toAddFriend} reciprocateFriend={reciprocateFriend} />
     })
 
 

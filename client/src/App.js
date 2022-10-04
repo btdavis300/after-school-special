@@ -160,6 +160,20 @@ function App() {
     })
   }
 
+  function reciprocateFriend(user) {
+    const newFriend = {
+      friend_id: currentUser.id,
+      requester_id: user.id
+    }
+    fetch('/friendships', {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newFriend),
+    })
+  }
+
   return (
     <BrowserRouter>
       <NavBar
@@ -211,7 +225,8 @@ function App() {
                 profPhoto={profPhoto}
                 friendRequests={friendRequests}
                 onFriend={onFriend}
-                toAddFriend={toAddFriend} />
+                toAddFriend={toAddFriend}
+                reciprocateFriend={reciprocateFriend} />
             </Route>
           }
           <Route exact path="/profile/my_connections">

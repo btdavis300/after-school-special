@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react'
 
-function FriendRequestCard({ friend, onFriend, toAddFriend }) {
+function FriendRequestCard({ friend, onFriend, toAddFriend, reciprocateFriend }) {
     const [profPhoto, setProfPhoto] = useState([])
 
     function handleAccept() {
         onFriend(friend)
         toAddFriend(friend)
+        reciprocateFriend(friend)
     }
 
     function handleDecline() {
