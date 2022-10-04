@@ -5,10 +5,10 @@ import NavBar from './components/NavBar';
 import Signup from './components/Signup';
 import Home from './components/Home';
 import Profile from './components/Profile';
-import MyConnections from './components/MyConnections';
 import Programs from './components/Programs';
 import ASFooter from './components/ASFooter';
 import Connectivity from './components/Connectivity';
+import Messages from './components/Messages';
 
 function App() {
 
@@ -230,8 +230,8 @@ function App() {
                 reciprocateFriend={reciprocateFriend} />
             </Route>
           }
-          <Route exact path="/profile/my_connections">
-            <MyConnections currentUser={currentUser} />
+          <Route exact path="/messages">
+            <Messages currentUser={currentUser} myFriends={myFriends} />
           </Route>
           <Route exact path="/connectivity">
             <Connectivity publicUsers={publicUsers} newFriendRequest={newFriendRequest} />

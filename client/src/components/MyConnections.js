@@ -28,7 +28,7 @@ function MyConnections({ myFriends, onUnfriend, friendRequests, onFriend, toAddF
                         </div>
                         <div class="flow-root">
                             <ul role="list" class="divide-y divide-gray-200 dark:divide-gray-700">
-                                {friendRequests.length > 0 ? friendRequestsCard : <span className='text-black dark:text-white'>You have no new requests</span>}
+                                {friendRequests.length > 0 ? friendRequestsCard : <span className='text-gray-500 dark:text-gray-400'>You have no new requests</span>}
                             </ul>
                         </div>
                     </div>
