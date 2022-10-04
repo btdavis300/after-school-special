@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :friend_requests
   resources :profile_photos
   resources :friendships
   resources :enrolled_programs
@@ -14,6 +15,10 @@ Rails.application.routes.draw do
 
   # Unenrollment Route
   delete "/unenrollment", to: "programs#unenrollment"
+
+  # FriendRequest Routes
+  get "/current_user_requests", to: "friend_requests#current_user_requests"
+  delete "/delete_request", to: "friend_requests#delete_request"
 
   # Unfriend Route
   delete "/unfriend", to: "friendships#unfriend"

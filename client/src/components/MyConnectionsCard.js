@@ -17,8 +17,6 @@ function MyConnectionsCard({ friend, onUnfriend }) {
             })
     }, []);
 
-    console.log(profPhoto)
-
     return (
         <>
             <li class="py-3 sm:py-4">

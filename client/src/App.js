@@ -25,6 +25,7 @@ function App() {
   const [searchErrors, setSearchErrors] = useState([])
   const [redirect, setRedirect] = useState(false)
   const [profPhoto, setProfPhoto] = useState([])
+  const [friendRequests, setFriendRequests] = useState([])
 
   useEffect(() => {
     fetch("/programs")
@@ -50,6 +51,7 @@ function App() {
                 setMyPrograms(user.programs)
                 setMyFriends(user.friends)
                 fetchProfPhoto(user.id)
+                setFriendRequests(user.senders)
               }
             )
         }
@@ -129,13 +131,33 @@ function App() {
   }
 
   function onUnfriend(user) {
-    console.log(user)
     fetch(`/unfriend?friend_id=${user.id}&requester_id=${currentUser.id}`, { method: "DELETE" })
       .then(res => {
         if (res.ok) {
           setMyFriends(myFriends.filter(friend => friend.id !== user.id))
         }
       })
+  }
+
+  function onFriend(user) {
+    fetch(`/delete_request?sender=${user.id}&receiver=${currentUser.id}`, { method: "DELETE" })
+      .then(res => {
+        if (res.ok) {
+          setFriendRequests(friendRequests.filter(request => request.id !== user.id))
+        }
+      })
+  }
+
+  function newFriendRequest(user) {
+    const request = {
+      sender_id: currentUser.id,
+      receiver_id: user.id
+    }
+    fetch('/friend_requests', {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(request)
+    })
   }
 
   return (
@@ -186,14 +208,17 @@ function App() {
                 onUnenrollment={onUnenrollment}
                 myFriends={myFriends}
                 onUnfriend={onUnfriend}
-                profPhoto={profPhoto} />
+                profPhoto={profPhoto}
+                friendRequests={friendRequests}
+                onFriend={onFriend}
+                toAddFriend={toAddFriend} />
             </Route>
           }
           <Route exact path="/profile/my_connections">
             <MyConnections currentUser={currentUser} />
           </Route>
           <Route exact path="/connectivity">
-            <Connectivity publicUsers={publicUsers} toAddFriend={toAddFriend} />
+            <Connectivity publicUsers={publicUsers} newFriendRequest={newFriendRequest} />
           </Route>
           <Route exact path="/programs">
             <Programs

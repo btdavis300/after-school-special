@@ -9,6 +9,11 @@ class User < ApplicationRecord
     has_many :requesters, foreign_key: :requester_id, class_name: "Friendship"
     has_many :friends, through: :requesters
 
+    has_many :senders, foreign_key: :sender_id , class_name: "FriendRequest"
+    has_many :receivers, through: :senders
+    has_many :receivers, foreign_key: :receiver_id, class_name: "FriendRequest"
+    has_many :senders, through: :receivers
+
     validates :username, presence: true, uniqueness: true
     validates :email, presence: true, uniqueness: true
 

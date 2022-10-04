@@ -4,4 +4,5 @@ class UserSerializer < ActiveModel::Serializer
   has_many :enrolled_programs
   has_many :programs
   has_many :friends, dependent: :destroy
+  has_many :senders, serializer: SenderUserSerializerSerializer
 end

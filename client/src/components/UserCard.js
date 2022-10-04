@@ -2,11 +2,13 @@ import React, { useState, useEffect } from 'react'
 import { Card } from 'flowbite-react'
 import profPic from '../assets/prof-pic-ph.png'
 
-function UserCard({ user, toAddFriend }) {
+function UserCard({ user, newFriendRequest }) {
     const [profPhoto, setProfPhoto] = useState([])
+    const [requested, setRequested] = useState(false)
 
     function handleFriend() {
-        toAddFriend(user)
+        newFriendRequest(user)
+        setRequested(true)
     }
 
     useEffect(() => {
@@ -42,7 +44,7 @@ function UserCard({ user, toAddFriend }) {
                                 onClick={handleFriend}
                                 className="inline-flex items-center rounded-lg bg-blue-700 py-2 px-4 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                             >
-                                Add friend
+                                {requested ? "Requested" : "Add Friend"}
                             </button>
                             <button
                                 className="inline-flex items-center rounded-lg border border-gray-300 bg-white py-2 px-4 text-center text-sm font-medium text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:hover:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-700"

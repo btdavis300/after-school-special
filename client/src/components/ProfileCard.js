@@ -26,7 +26,6 @@ function ProfileCard({ currentUser, setCurrentUser, profPhoto }) {
     const form = document.getElementById("update-form")
 
     function handleSubmit(e) {
-        // e.preventDefault();
         fetch(`/users/${currentUser.id}`, {
             method: "PATCH",
             headers: { "Content-Type": "application/json" },
