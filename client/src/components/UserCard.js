@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { Card, Modal, Button } from 'flowbite-react'
 
-function UserCard({ user, newFriendRequest, newMessage }) {
+function UserCard({ user, currentUser, newFriendRequest }) {
     const [profPhoto, setProfPhoto] = useState([])
     const [modal, setModal] = useState(false)
     const [requested, setRequested] = useState(false)
+    const [message, setMessage] = useState("")
 
     function handleFriend() {
         newFriendRequest(user)
@@ -20,7 +21,19 @@ function UserCard({ user, newFriendRequest, newMessage }) {
     }, []);
 
     function handleMessage() {
-        newMessage(user)
+        const newMessage = {
+            writer_id: currentUser.id,
+            reader_id: user.id,
+            body: message
+        }
+        fetch('/messages', {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(newMessage)
+        })
+        setModal(false)
     }
 
 
@@ -80,7 +93,7 @@ function UserCard({ user, newFriendRequest, newMessage }) {
                             </h3>
                             <div class="mb-6">
                                 <label for="large-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">New Message</label>
-                                <textarea rows="5" cols="60" id="large-input" class="h-max overflow-y-auto block p-4 w-full text-gray-900 bg-gray-50 rounded-lg border border-gray-300 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+                                <textarea rows="5" cols="60" onChange={(e) => setMessage(e.target.value)} id="large-input" class="h-max overflow-y-auto block p-4 w-full text-gray-900 bg-gray-50 rounded-lg border border-gray-300 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
                             </div>
                             <div className="w-full">
                                 <Button onClick={handleMessage}>

@@ -14,7 +14,7 @@ class MessagesController < ApplicationController
     end
 
     def current_user_messages
-        messages = Message.where(receiver_id: params[:receiver], sender_id: params[:sender])
+        messages = Message.where(reader_id: params[:reader], writer_id: params[:writer])
         if messages.exists?
             render json: messages, status: :ok
         else
@@ -25,7 +25,7 @@ class MessagesController < ApplicationController
 private
     
     def message_params
-        params.permit(:sender_id, :receiver_id, :body, :sender, :receiver)
+        params.permit(:writer_id, :reader_id, :body, :writer, :reader)
     end
 
 end

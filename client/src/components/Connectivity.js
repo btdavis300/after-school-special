@@ -2,10 +2,10 @@ import React from 'react'
 import UserCard from './UserCard'
 
 
-function Connectivity({ publicUsers, newFriendRequest, newMessage }) {
+function Connectivity({ publicUsers, currentUser, newFriendRequest }) {
 
     const usersCard = publicUsers.map(user => {
-        return <UserCard key={user.id} user={user} newFriendRequest={newFriendRequest} newMessage={newMessage} />
+        return <UserCard key={user.id} user={user} newFriendRequest={newFriendRequest} currentUser={currentUser} />
     })
 
     return (
