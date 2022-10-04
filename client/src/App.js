@@ -137,6 +137,7 @@ function App() {
           setMyFriends(myFriends.filter(friend => friend.id !== user.id))
         }
       })
+    fetch(`/unfriend?friend_id=${currentUser.id}&requester_id=${user.id}`, { method: "DELETE" })
   }
 
   function onFriend(user) {
