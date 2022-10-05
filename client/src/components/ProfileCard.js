@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
-import { Button, Modal } from 'flowbite-react'
-
+import { Button, Modal, Tooltip } from 'flowbite-react'
 
 
 function ProfileCard({ currentUser, setCurrentUser, profPhoto }) {
@@ -60,7 +59,9 @@ function ProfileCard({ currentUser, setCurrentUser, profPhoto }) {
             <div class='flex flex-col lg:flex lg:flex-row lg:justify-between lg:items-center'>
                 <div className='py-5 flex flex-col items-center'>
                     <div>
-                        <img onClick={() => setModal(true)} class="object-cover w-72 h-72 rounded-full hover:cursor-pointer" src={profPhoto.image_url} alt="profile" />
+                        <Tooltip content="Update Photo">
+                            <img onClick={() => setModal(true)} class="object-cover w-72 h-72 rounded-full hover:cursor-pointer" src={profPhoto.image_url} alt="profile" />
+                        </Tooltip>
                     </div>
                 </div>
 
@@ -194,7 +195,7 @@ function ProfileCard({ currentUser, setCurrentUser, profPhoto }) {
                                 </div>
                                 <div className=''>
                                     <form className='flex flex-row justify-between pt-5' onSubmit={handleImage}>
-                                        <input onChange={(e) => setImageData(e.target.files[0])} class='w-6/12 text-black dark:text-white bg-gray-800 rounded-lg' type="file" name="image" id="image" />
+                                        <input onChange={(e) => setImageData(e.target.files[0])} class='w-6/12 text-black dark:text-white bg-gray-800 rounded-lg' type="file" name="uploader" id="uploader" />
                                         <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-1  dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Update Photo</button>
                                     </form>
                                 </div>

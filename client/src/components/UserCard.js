@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { Card, Modal, Button } from 'flowbite-react'
 
-function UserCard({ user, currentUser, newFriendRequest }) {
+function UserCard({ user, newFriendRequest }) {
     const [profPhoto, setProfPhoto] = useState([])
-    const [modal, setModal] = useState(false)
     const [requested, setRequested] = useState(false)
-    const [message, setMessage] = useState("")
+
 
     function handleFriend() {
         newFriendRequest(user)
@@ -19,24 +18,6 @@ function UserCard({ user, currentUser, newFriendRequest }) {
                 setProfPhoto(photosArr)
             })
     }, []);
-
-    function handleMessage() {
-        // const newMessage = {
-        //     user_id: currentUser.id,
-        //     reader_id: user.id,
-        //     body: message
-        // }
-        // fetch('/messages', {
-        //     method: "POST",
-        //     headers: {
-        //         "Content-Type": "application/json",
-        //     },
-        //     body: JSON.stringify(newMessage)
-        // })
-        setModal(false)
-        console.log(message)
-    }
-
 
     return (
         <>
@@ -66,7 +47,7 @@ function UserCard({ user, currentUser, newFriendRequest }) {
                                     {requested ? "Requested" : "Add Friend"}
                                 </button>
                                 <button
-                                    onClick={() => setModal(true)}
+                                    // onClick={() => setModal(true)}
                                     className="inline-flex items-center rounded-lg border border-gray-300 bg-white py-2 px-4 text-center text-sm font-medium text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:hover:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
                                 >
                                     Message
@@ -77,35 +58,6 @@ function UserCard({ user, currentUser, newFriendRequest }) {
                 </div>
 
             </div>
-
-            <React.Fragment>
-
-                <Modal
-                    show={modal}
-                    size="md"
-                    popup={true}
-                    onClose={() => setModal(false)}
-                >
-                    <Modal.Header />
-                    <Modal.Body>
-                        <div className="space-y-6 px-6 pb-4 sm:pb-6 lg:px-8 xl:pb-8">
-                            <h3 className="text-xl font-medium text-gray-900 dark:text-white">
-                                Message {user.first_name} {user.last_name}
-                            </h3>
-                            <div class="mb-6">
-                                <label for="large-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">New Message</label>
-                                <textarea rows="5" cols="60" onChange={(e) => setMessage(e.target.value)} id="large-input" class="h-max overflow-y-auto block p-4 w-full text-gray-900 bg-gray-50 rounded-lg border border-gray-300 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
-                            </div>
-                            <div className="w-full">
-                                <Button onClick={handleMessage}>
-                                    Send
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5l7 7-7 7M5 5l7 7-7 7"></path></svg>
-                                </Button>
-                            </div>
-                        </div>
-                    </Modal.Body>
-                </Modal>
-            </React.Fragment>
         </>
     )
 }
