@@ -8,7 +8,7 @@ function Messages({ currentUser, myFriends }) {
     const [chatEntries, setChatEntries] = useState([])
 
     const sideBarUser = myFriends.map(friend => {
-        return <MessageSideBarUser key={friend.id} friend={friend} setConversation={setConversation} conversation={conversation} currentUser={currentUser} setChatEntries={setChatEntries} />
+        return <MessageSideBarUser key={friend.id} friend={friend} setConversation={setConversation} currentUser={currentUser} setChatEntries={setChatEntries} chatEntries={chatEntries} />
     })
 
     const messageEntries = chatEntries.map(message => {

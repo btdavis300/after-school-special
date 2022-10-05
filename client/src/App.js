@@ -119,6 +119,10 @@ function App() {
       friend_id: user.id,
       requester_id: currentUser.id
     }
+    const newConvo = {
+      writer_id: currentUser.id,
+      reader_id: user.id
+    }
     fetch('/friendships', {
       method: "POST",
       headers: {
@@ -128,6 +132,14 @@ function App() {
     })
       .then(r => r.json())
       .then(setMyFriends([...myFriends, user]))
+
+    fetch('/conversations', {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newConvo),
+    })
   }
 
   function onUnfriend(user) {
