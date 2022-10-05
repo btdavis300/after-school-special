@@ -55,9 +55,9 @@ function Messages({ currentUser, myFriends }) {
 
                 </div>
                 <div>
-                    <div class='block w-96 h-96 bg-gray-50 rounded-t-xl lg:rounded-xl dark:bg-gray-800'>
-                        {messageEntries}
-                    </div>
+                    <ul class='block overflow-y-auto w-96 h-96 bg-gray-50 rounded-t-xl lg:rounded-xl dark:bg-gray-800'>
+                        {conversation.length === 0 ? <li className='text-3xl font-extrabold list-none text:black dark:text-gray-600 pt-3 flex justify-center'>Start your conversation</li> : messageEntries}
+                    </ul>
                 </div>
                 <form onSubmit={onNewMessage} className='w-96'>
                     <label for="chat" class="sr-only">Your message</label>

@@ -13,11 +13,10 @@ function MessageSideBarUser({ friend, setConversation, conversation, currentUser
 
     function handleConversation() {
         fetch(`/current_user_messages?writer_id=${currentUser.id}&reader_id=${friend.id}`)
-            .then(r => r.json())
+            .then((res) => res.json())
             .then(convoArr => {
                 setConversation(convoArr)
                 setChatEntries(convoArr.messages)
-
             })
     }
 

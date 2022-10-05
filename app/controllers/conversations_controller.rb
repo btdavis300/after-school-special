@@ -10,7 +10,7 @@ class ConversationsController < ApplicationController
         if conversation.exists?
             render json: conversation.first, status: :ok
         else
-            render json: "No messages.", status: :not_found
+            render json: {messages: [body: "No Messages"]}, status: :not_found
         end
     end
 

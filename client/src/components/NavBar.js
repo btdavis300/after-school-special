@@ -124,6 +124,9 @@ function NavBar({ loggedIn, currentUser, setCurrentUser, setLoggedIn, visible, s
                             <Dropdown.Item onClick={handleProfDropClick}>
                                 My Connections
                             </Dropdown.Item>
+                            <Dropdown.Item onClick={() => history.push('/messages')}>
+                                Messages
+                            </Dropdown.Item>
                             <Dropdown.Divider />
                             <Dropdown.Item onClick={(onSignOut)}>
                                 Sign out
