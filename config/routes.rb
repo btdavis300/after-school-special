@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :messages
   resources :friend_requests
   resources :profile_photos
   resources :friendships
@@ -23,9 +22,6 @@ Rails.application.routes.draw do
 
   # Unfriend Route
   delete "/unfriend", to: "friendships#unfriend"
-
-  # Messages Routes
-  get "/current_user_messages", to: "messages#current_user_messages"
 
   # Category Routes
   get "/drop_in_center", to: "programs#drop_in_center"
