@@ -4,13 +4,9 @@ class ConversationsController < ApplicationController
         render json: @conversations, status: :ok
     end
 
-    # def show
-    #     conversation = Conversation.find_by(writer_id: params[:writer_id], reader_id: params[:reader_id])
-    #     render json: conversation.first, status: :accepted
-    # end
-
     def current_user_messages
-        conversation = Conversation.where(writer_id: params[:writer_id], reader_id: params[:reader_id])
+        # conversation = Conversation.where((writer_id: params[:writer_id], reader_id: params[:reader_id]) || (writer_id: params[:reader_id], reader_id: params[:writer_id]))
+        conversation = Conversation.where('(writer_id = ? AND reader_id = ?) OR (reader_id = ? AND writer_id = ?)', params[:writer_id], params[:reader_id], params[:writer_id], params[:reader_id])
         if conversation.exists?
             render json: conversation.first, status: :ok
         else
