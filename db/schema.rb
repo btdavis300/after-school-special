@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_05_122059) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_05_123551) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -42,6 +42,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_05_122059) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "conversations", force: :cascade do |t|
+    t.integer "writer_id"
+    t.integer "reader_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "enrolled_programs", force: :cascade do |t|
     t.integer "user_id"
     t.integer "program_id"
@@ -62,6 +69,17 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_05_122059) do
     t.integer "requester_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.text "body"
+    t.bigint "conversation_id"
+    t.bigint "user_id"
+    t.boolean "read", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["conversation_id"], name: "index_messages_on_conversation_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "profile_photos", force: :cascade do |t|

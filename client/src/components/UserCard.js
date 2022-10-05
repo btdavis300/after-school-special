@@ -21,19 +21,20 @@ function UserCard({ user, currentUser, newFriendRequest }) {
     }, []);
 
     function handleMessage() {
-        const newMessage = {
-            writer_id: currentUser.id,
-            reader_id: user.id,
-            body: message
-        }
-        fetch('/messages', {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(newMessage)
-        })
+        // const newMessage = {
+        //     user_id: currentUser.id,
+        //     reader_id: user.id,
+        //     body: message
+        // }
+        // fetch('/messages', {
+        //     method: "POST",
+        //     headers: {
+        //         "Content-Type": "application/json",
+        //     },
+        //     body: JSON.stringify(newMessage)
+        // })
         setModal(false)
+        console.log(message)
     }
 
 
