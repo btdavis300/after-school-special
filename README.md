@@ -38,38 +38,6 @@ As a user I can...
 
 
 ## Schema
-![schema](https://user-images.githubusercontent.com/100324379/191362231-b9470d46-b063-4717-919f-a448a69ec274.png)
+![schema](https://user-images.githubusercontent.com/100324379/194879712-e079439e-5e82-4215-afbe-35ea6b8f2b6e.png)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
