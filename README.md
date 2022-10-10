@@ -6,6 +6,7 @@ This web application was made as the capstone project for the Flatiron School fo
 https://afterschool-special.herokuapp.com/
 
 ## Commands to Run on Local Environment
+Assuming you have react and rails installed on your local environment, use the following commands:
 
 ``` 
     bundle install
@@ -30,17 +31,13 @@ As a user I can...
 - Browse programs through a selection of filters.
 - Signup to create a profile, through a secured authenication process.
 - Update their profile based on specific criteria.
-- Delete their account.
 - Add users to their "Connections" List.
-- Enroll in a program.
+- Enroll/Unenroll in a program.
+- Message other friends.
 - UI/UX formatted for both Web and mobile access.
 
-## Stretch Goals
-- Be able to message other users, using Active Cable.
-- Set up a “Carpool” request system, where users can request to carpool with other users on their “Connections” List.
 
-
-## Schema (as of 9/20)
+## Schema
 ![schema](https://user-images.githubusercontent.com/100324379/191362231-b9470d46-b063-4717-919f-a448a69ec274.png)
 
 
