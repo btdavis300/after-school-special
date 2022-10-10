@@ -2,6 +2,9 @@
 
 This web application was made as the capstone project for the Flatiron School for Fullstack Development bootcamp. Afterschool Special is intended for parents to find different afterschool programs for their children and to connect with other parents.
 
+## Demo Video
+https://www.loom.com/share/8f19f47968de42878c632dc30c27eeaa
+
 ## Hosted By Heroku
 https://afterschool-special.herokuapp.com/
 
