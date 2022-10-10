@@ -5,7 +5,7 @@ import icon from "../assets/as-icon.png"
 import defaultpic from '../assets/profile-pic.webp'
 
 
-function NavBar({ loggedIn, currentUser, setCurrentUser, setLoggedIn, visible, setVisible, setProfileCard, setProgramComp, setConnectionComp, fetchSearch, searchErrors, searchFunction, errorsFunction, profPhoto }) {
+function NavBar({ loggedIn, currentUser, setCurrentUser, setLoggedIn, setVisible, setProfileCard, setProgramComp, setConnectionComp, searchErrors, searchFunction, errorsFunction, profPhoto }) {
     const [search, setSearch] = useState("")
     const history = useHistory()
 
