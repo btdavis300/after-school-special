@@ -43,7 +43,8 @@ function ASFooter() {
                 </div>
                 <Modal
                     show={modal}
-                    size="5xl"
+                    size="3xl"
+                    position="top-center"
                     onClose={() => setModal(false)}
                 >
                     <Modal.Header>
@@ -58,7 +59,7 @@ function ASFooter() {
                                 Afterschool Special was made as part of my capstone project for my Flatiron School for Software Engineering Certification. This project was made over a 3 week period. AS is intended for parents to find the right afterschool program for their child and to build a stronger community through parent connections.
                             </p>
                             <p className="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-                                During my study at Flatiron, I came across a website called <a href="https://opendata.cityofnewyork.us/" className='text-blue-300 hover:underline' target="_blank">NYC Open Data</a> that contained a plethora of data sets for the city of New York. I was fascinated by this data, particulary the API that held information about afterschool programs. As I was brainstorming ideas for my final project, my wife (a social worker) showed me the online resources she uses for her job, resources for food banks, housing assistances, cash assistances, etc. I wanted to create something practical for people to use, not just a web application that could display data, but could also be interactive between users.
+                                During my study at Flatiron, I came across a website called <a href="https://opendata.cityofnewyork.us/" className='text-blue-300 hover:underline' target="_blank">NYC Open Data</a> that contained a plethora of data sets for the city of New York. I was fascinated by this data, particulary the API that held information about afterschool programs. As I was brainstorming ideas for my final project, my wife (a social worker) showed me the online resources she uses for her job, resources for food banks, housing assistances, cash assistances, etc. I wanted to create something practical for people to use, not just a web application that could display data, but could also be interactive between users. Afterschool Special is styled by Tailwind with responsive design to be used for mobile devices.
                             </p>
                         </div>
                     </Modal.Body>
