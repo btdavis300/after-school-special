@@ -163,7 +163,7 @@ function NavBar({ loggedIn, currentUser, setCurrentUser, setLoggedIn, setVisible
                     >
                         Home
                     </Navbar.Link>
-                    <Navbar.Link href="http://localhost:4000/programs">
+                    <Navbar.Link href="./programs">
                         Programs
                     </Navbar.Link>
                     <Navbar.Link href="./connectivity">
